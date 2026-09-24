@@ -1,0 +1,18 @@
+---
+interface Props { title: string; id?: string; kind?: 'album' | 'track'; url?: string; tracks?: number }
+const { title, id = '', kind = 'album', url = '', tracks = 1 } = Astro.props;
+// Bandcamp's "Share / Embed" dialog shows the numeric album or track id in the embed code.
+const showList = kind === 'album' && tracks > 1;
+const height = showList ? Math.min(120 + tracks * 33, 472) : 120;
+const src = id
+  ? `https://bandcamp.com/EmbeddedPlayer/${kind}=${id}/size=large/bgcol=16121a/linkcol=b49cff/artwork=small/tracklist=${showList}/transparent=true/`
+  : '';
+---
+{src ? (
+  <iframe class="bc-player" style={`height:${height}px`} src={src} title={`${title} on Bandcamp`} loading="lazy" seamless></iframe>
+) : url ? (
+  <a class="bc-fallback" href={url}>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+    <span>Play {title} on Bandcamp</span>
+  </a>
+) : null}

@@ -1,0 +1,109 @@
+# Pages CMS configuration (https://pagescms.org). Band members sign in with GitHub
+# and edit these collections through a form; every save is a commit that redeploys the site.
+media:
+  input: public/images
+  output: /images
+
+content:
+  - name: shows
+    label: Shows
+    type: collection
+    path: src/content/shows
+    format: yaml
+    filename: "{year}-{month}-{day}-{primary}.yaml"
+    view:
+      fields: [date, city, venue]
+      primary: city
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: date, label: Date, type: date, required: true, options: { format: yyyy-MM-dd } }
+      - { name: city, label: City, type: string, required: true, description: "e.g. Montréal, QC" }
+      - { name: venue, label: Venue, type: string }
+      - { name: address, label: Address, type: string }
+      - { name: doors, label: Doors, type: string, description: "e.g. 7:00 PM" }
+      - { name: show_time, label: Show time, type: string }
+      - { name: price, label: Price, type: string, description: "e.g. $15 / PWYC" }
+      - { name: ages, label: Ages, type: string, description: "e.g. 19+ or All ages" }
+      - { name: with, label: Playing with, type: string, list: true, description: "One band per row" }
+      - { name: link, label: Tickets or event link, type: string }
+      - { name: accessibility, label: Accessibility notes, type: text, description: "Step-free entry, washrooms, seating, masking policy" }
+      - { name: notes, label: Other notes, type: text }
+
+  - name: releases
+    label: Releases
+    type: collection
+    path: src/content/releases
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title, type, date]
+      primary: title
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - name: type
+        label: Type
+        type: select
+        required: true
+        options: { values: [LP, EP, Single, 2-track] }
+      - { name: date, label: Release date, type: date, required: true, options: { format: yyyy-MM-dd } }
+      - { name: summary, label: One-line summary, type: string }
+      - { name: cover, label: Cover art, type: image, description: "Square, about 1200×1200 px, under 1 MB" }
+      - { name: bandcamp_url, label: Bandcamp page link, type: string }
+      - { name: bandcamp_id, label: Bandcamp embed ID, type: string, description: "The number after album= or track= in Bandcamp's Share/Embed code" }
+      - name: bandcamp_kind
+        label: Bandcamp embed type
+        type: select
+        options: { values: [album, track] }
+      - { name: spotify_url, label: Spotify link, type: string }
+      - { name: tracks, label: Tracklist, type: string, list: true }
+      - { name: tint, label: Placeholder colour (used until cover art is added), type: string }
+      - { name: body, label: Credits and notes, type: text }
+
+  - name: site
+    label: Site settings
+    type: file
+    path: src/data/site.json
+    format: json
+    fields:
+      - { name: name, label: Band name, type: string }
+      - { name: tagline, label: Tagline, type: string }
+      - { name: intro, label: Intro line, type: string }
+      - { name: location, label: Location line, type: string }
+      - { name: hero_image, label: Hero photo, type: image, description: "Landscape or portrait, about 1600 px wide, under 1 MB" }
+      - name: accent
+        label: Accent colour
+        type: select
+        options: { values: ["#603cba", "#8b1e3f", "#2f6b4f", "#9a4a12"] }
+      - { name: bio, label: Bio paragraphs, type: text, list: true }
+      - name: lineup
+        label: Lineup
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: role, label: Instruments, type: string }
+      - { name: lineup_note, label: Lineup note, type: string }
+      - name: press
+        label: Press quotes
+        type: object
+        list: true
+        fields:
+          - { name: quote, label: Quote (keep it short), type: string }
+          - { name: source, label: Source, type: string }
+          - { name: url, label: Link to article, type: string }
+      - { name: email, label: Contact email, type: string }
+      - { name: epk_url, label: Press kit link, type: string }
+      - name: links
+        label: Links
+        type: object
+        fields:
+          - { name: bandcamp, label: Bandcamp, type: string }
+          - { name: spotify, label: Spotify, type: string }
+          - { name: instagram, label: Instagram, type: string }
+          - { name: facebook, label: Facebook, type: string }
+      - { name: land_acknowledgement, label: Land acknowledgement (footer), type: text }

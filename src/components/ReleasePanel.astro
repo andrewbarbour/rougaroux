@@ -1,0 +1,32 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import Cover from './Cover.astro';
+import BandcampPlayer from './BandcampPlayer.astro';
+import { dateParts } from '../lib/dates';
+
+interface Props { release: CollectionEntry<'releases'>; hidden?: boolean; headingLevel?: 'h1' | 'h3' }
+const { release, hidden = false, headingLevel = 'h3' } = Astro.props;
+const r = release.data;
+const { Content } = await render(release);
+const Heading = headingLevel;
+const typeLabel = r.type === '2-track' ? 'Two-track release' : r.type;
+---
+<article class="release-panel" id={`release-${release.id}`} data-panel={release.id} hidden={hidden}>
+  <Cover title={r.title} cover={r.cover} tint={r.tint} size="large" />
+  <div class="release-panel__body">
+    <p class="meta">{typeLabel}, released {dateParts(r.date).long}</p>
+    <Heading class="release-panel__title">{r.title}</Heading>
+    {r.summary && <p class="release-panel__summary">{r.summary}</p>}
+    <BandcampPlayer title={r.title} id={r.bandcamp_id} kind={r.bandcamp_kind} url={r.bandcamp_url} tracks={r.tracks.length} />
+    {r.tracks.length > 0 && (
+      <ol class="tracklist">
+        {r.tracks.map((t) => <li>{t}</li>)}
+      </ol>
+    )}
+    <div class="credits"><Content /></div>
+    <p class="release-panel__links">
+      {r.bandcamp_url && <a href={r.bandcamp_url}>Buy on Bandcamp</a>}
+      {r.spotify_url && <a href={r.spotify_url}>Stream on Spotify</a>}
+    </p>
+  </div>
+</article>

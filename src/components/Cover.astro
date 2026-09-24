@@ -1,0 +1,11 @@
+---
+interface Props { title: string; cover?: string; tint?: string; size?: 'card' | 'large' }
+const { title, cover = '', tint = '#2a1d3f', size = 'card' } = Astro.props;
+---
+{cover ? (
+  <img class:list={['cover', `cover--${size}`]} src={cover} alt={`${title} cover art`} loading="lazy" decoding="async" width="600" height="600" />
+) : (
+  <div class:list={['cover', 'cover--placeholder', `cover--${size}`]} style={`--tint:${tint}`} role="img" aria-label={`${title} cover art`}>
+    <span>{title}</span>
+  </div>
+)}

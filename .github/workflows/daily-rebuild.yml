@@ -1,0 +1,18 @@
+# Rebuilds the site once a day so the "Next show" banner and the Upcoming/Past split
+# stay correct even when nobody has edited anything. Add a repository secret named
+# DEPLOY_HOOK_URL containing your host's deploy hook (Cloudflare Pages or Netlify).
+name: Daily rebuild
+on:
+  schedule:
+    - cron: '0 11 * * *' # 04:00 in Vancouver (PDT)
+  workflow_dispatch:
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger deploy hook
+        env:
+          HOOK: ${{ secrets.DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "DEPLOY_HOOK_URL is not set"; exit 1; fi
+          curl -fsS -X POST "$HOOK"

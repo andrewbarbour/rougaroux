@@ -1,0 +1,183 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Cover from '../components/Cover.astro';
+import ReleasePanel from '../components/ReleasePanel.astro';
+import ShowRow from '../components/ShowRow.astro';
+import site from '../data/site.json';
+import { dateParts, isoDay, splitShows } from '../lib/dates';
+
+const releases = (await getCollection('releases')).sort((a, b) => +b.data.date - +a.data.date);
+const { upcoming, past } = splitShows(await getCollection('shows'));
+const latest = releases[0];
+const next = upcoming[0];
+const nextParts = next ? dateParts(next.data.date) : null;
+const years = releases.map((r) => r.data.date.getUTCFullYear());
+const span = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : '';
+const links = [
+  ['Bandcamp', site.links.bandcamp],
+  ['Spotify', site.links.spotify],
+  ['Instagram', site.links.instagram],
+  ['Facebook', site.links.facebook],
+].filter(([, href]) => href);
+---
+<Base>
+  <section class="hero wrap">
+    <div class="hero__text">
+      <p class="eyebrow">{site.location}</p>
+      <h1 class="hero__title">{site.name}</h1>
+      <p class="hero__tagline">{site.tagline}</p>
+      <p class="hero__intro">{site.intro}</p>
+      <div class="hero__actions">
+        {latest && <a class="btn btn--solid btn--lg" href="#music">Hear {latest.data.title}</a>}
+        {next && nextParts && <a class="btn btn--ghost btn--lg" href="#shows">Next show: {nextParts.month} {nextParts.day}, {next.data.city.split(',')[0]}</a>}
+      </div>
+    </div>
+    <div class="hero__media">
+      {site.hero_image
+        ? <img src={site.hero_image} alt={`${site.name} performing`} width="1120" height="1200" fetchpriority="high" />
+        : <div class="photo-placeholder">Band photo</div>}
+    </div>
+  </section>
+
+  {next && nextParts && (
+    <aside class="next-up" data-date={isoDay(next.data.date)} aria-label="Next show">
+      <div class="wrap next-up__inner">
+        <p class="next-up__info">
+          <strong>Next up</strong>
+          <span>{nextParts.weekday} {nextParts.month} {nextParts.day} {nextParts.year}</span>
+          <span>{next.data.city.split(',')[0]}{next.data.venue && `, ${next.data.venue}`}</span>
+          {next.data.with.length > 0 && <span class="next-up__with">with {next.data.with.join(', ')}</span>}
+        </p>
+        <a href="#shows">Show details</a>
+      </div>
+    </aside>
+  )}
+
+  <section id="music" class="section wrap" aria-labelledby="music-h">
+    <div class="section__head">
+      <h2 id="music-h">Music</h2>
+      <p class="meta">{releases.length} releases, {span}</p>
+    </div>
+    <ul class="release-grid" role="list">
+      {releases.map((r, i) => (
+        <li>
+          <a class="release-card" href={`/music/${r.id}/`} data-release={r.id} aria-controls={`release-${r.id}`} aria-current={i === 0 ? 'true' : undefined}>
+            <Cover title={r.data.title} cover={r.data.cover} tint={r.data.tint} />
+            <span class="release-card__title">{r.data.title}</span>
+            <span class="meta">{r.data.type} {r.data.date.getUTCFullYear()}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="release-panels">
+      {releases.map((r, i) => <ReleasePanel release={r} hidden={i !== 0} />)}
+    </div>
+  </section>
+
+  <section id="shows" class="section section--alt" aria-labelledby="shows-h">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="shows-h">Shows</h2>
+        <div class="tabs" role="group" aria-label="Which shows to list">
+          <button type="button" class="tab" data-tab="upcoming" aria-pressed="true">Upcoming</button>
+          <button type="button" class="tab" data-tab="past" aria-pressed="false">Past</button>
+        </div>
+      </div>
+      <div data-list="upcoming">
+        <ul class="shows" role="list">
+          {upcoming.map((s, i) => <ShowRow show={s} primary={i === 0} />)}
+        </ul>
+        <p class="empty" hidden={upcoming.length > 0}>No shows announced right now. New dates go up here and on <a href={site.links.bandcamp}>Bandcamp</a> first.</p>
+      </div>
+      <div data-list="past" hidden>
+        <ul class="shows" role="list">
+          {past.map((s) => <ShowRow show={s} />)}
+        </ul>
+        <p class="empty" hidden={past.length > 0}>No past shows listed yet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section wrap about" aria-labelledby="about-h">
+    <div class="about__bio">
+      <h2 id="about-h">About</h2>
+      {site.bio.map((p, i) => <p class={i === 0 ? 'lead' : ''}>{p}</p>)}
+    </div>
+    <div class="about__band">
+      <h3 class="eyebrow">The band</h3>
+      <ul class="lineup" role="list">
+        {site.lineup.map((m) => <li><span class="lineup__name">{m.name}</span><span class="lineup__role">{m.role}</span></li>)}
+      </ul>
+      {site.lineup_note && <p class="small">{site.lineup_note}</p>}
+    </div>
+  </section>
+
+  {site.press.length > 0 && (
+    <section class="press" aria-label="Press">
+      {site.press.map((q) => (
+        <figure class="wrap press__item">
+          <blockquote>“{q.quote}”</blockquote>
+          <figcaption>{q.url ? <a href={q.url}>{q.source}</a> : q.source}</figcaption>
+        </figure>
+      ))}
+    </section>
+  )}
+
+  <section id="contact" class="section wrap contact" aria-labelledby="contact-h">
+    <div>
+      <h2 id="contact-h" class="eyebrow">Booking, press and everything else</h2>
+      <a class="contact__email" href={`mailto:${site.email}`}>{site.email}</a>
+      {site.epk_url && <p><a class="strong" href={site.epk_url}>Download the press kit</a></p>}
+    </div>
+    <nav class="elsewhere" aria-label="Elsewhere">
+      {links.map(([label, href]) => <a href={href}>{label}</a>)}
+    </nav>
+  </section>
+</Base>
+
+<script>
+  // Release switcher: cards are real links to /music/<slug>/, enhanced to swap panels in place.
+  const cards = document.querySelectorAll<HTMLAnchorElement>('[data-release]');
+  const panels = document.querySelectorAll<HTMLElement>('[data-panel]');
+  cards.forEach((card) => {
+    card.addEventListener('click', (e) => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      const id = card.dataset.release;
+      cards.forEach((c) => (c === card ? c.setAttribute('aria-current', 'true') : c.removeAttribute('aria-current')));
+      panels.forEach((p) => (p.hidden = p.dataset.panel !== id));
+      const panel = document.getElementById(`release-${id}`);
+      panel?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+    });
+  });
+
+  // Shows: re-sort against the visitor's own date, so a show moves to Past even if the site
+  // hasn't been rebuilt since it happened.
+  const today = new Intl.DateTimeFormat('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  const upList = document.querySelector('[data-list="upcoming"] .shows');
+  const pastList = document.querySelector('[data-list="past"] .shows');
+  if (upList && pastList) {
+    [...upList.querySelectorAll<HTMLElement>('.show')]
+      .filter((s) => (s.dataset.date ?? '') < today)
+      .reverse()
+      .forEach((s) => pastList.prepend(s));
+    for (const wrap of document.querySelectorAll<HTMLElement>('[data-list]')) {
+      const empty = wrap.querySelector<HTMLElement>('.empty');
+      if (empty) empty.hidden = wrap.querySelectorAll('.show').length > 0;
+    }
+    const firstBtn = upList.querySelector('.btn--ghost');
+    firstBtn?.classList.replace('btn--ghost', 'btn--solid');
+  }
+  document.querySelectorAll<HTMLElement>('.next-up').forEach((n) => {
+    if ((n.dataset.date ?? '') < today) n.hidden = true;
+  });
+
+  const tabs = document.querySelectorAll<HTMLButtonElement>('[data-tab]');
+  tabs.forEach((tab) =>
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => t.setAttribute('aria-pressed', String(t === tab)));
+      document.querySelectorAll<HTMLElement>('[data-list]').forEach((l) => (l.hidden = l.dataset.list !== tab.dataset.tab));
+    })
+  );
+</script>

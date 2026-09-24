@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { dateParts, isoDay } from '../lib/dates';
+
+interface Props { show: CollectionEntry<'shows'>; primary?: boolean }
+const { show, primary = false } = Astro.props;
+const s = show.data;
+const p = dateParts(s.date);
+const times = [s.doors && `Doors ${s.doors}`, s.show_time && `Show ${s.show_time}`].filter(Boolean).join(', ');
+const ticket = [s.price, s.ages].filter(Boolean).join(', ');
+---
+<li class="show" data-date={isoDay(s.date)}>
+  <time class="show__date" datetime={isoDay(s.date)}>
+    <span class="show__wk">{p.weekday} {p.month}</span>
+    <span class="show__day">{p.day}</span>
+    <span class="show__yr">{p.year}</span>
+  </time>
+  <div class="show__where">
+    <span class="show__city">{s.city}</span>
+    {s.venue && <span class="show__venue">{s.venue}{s.address && `, ${s.address}`}</span>}
+    {s.with.length > 0 && <span class="show__with">with {s.with.join(', ')}</span>}
+  </div>
+  <div class="show__details">
+    {times && <p>{times}</p>}
+    {ticket && <p>{ticket}</p>}
+    {s.accessibility && <p><strong>Access:</strong> {s.accessibility}</p>}
+    {s.notes && <p>{s.notes}</p>}
+  </div>
+  <div class="show__action">
+    {s.link && <a class:list={['btn', primary ? 'btn--solid' : 'btn--ghost']} href={s.link}>Event info<span class="sr-only"> for {s.city}, {p.long}</span></a>}
+  </div>
+</li>

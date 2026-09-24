@@ -1,0 +1,18 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ReleasePanel from '../../components/ReleasePanel.astro';
+
+export async function getStaticPaths() {
+  const releases = await getCollection('releases');
+  return releases.map((release) => ({ params: { slug: release.id }, props: { release } }));
+}
+interface Props { release: CollectionEntry<'releases'> }
+const { release } = Astro.props;
+---
+<Base title={release.data.title} description={release.data.summary || `${release.data.title} by Rougaroux.`} image={release.data.cover || undefined}>
+  <section class="section wrap">
+    <p><a class="back" href="/#music">All music</a></p>
+    <ReleasePanel release={release} headingLevel="h1" />
+  </section>
+</Base>
