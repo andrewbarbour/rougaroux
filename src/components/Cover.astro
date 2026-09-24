@@ -2,10 +2,16 @@
 interface Props { title: string; cover?: string; tint?: string; size?: 'card' | 'large' }
 const { title, cover = '', tint = '#2a1d3f', size = 'card' } = Astro.props;
 ---
-{cover ? (
-  <img class:list={['cover', `cover--${size}`]} src={cover} alt={`${title} cover art`} loading="lazy" decoding="async" width="600" height="600" />
-) : (
-  <div class:list={['cover', 'cover--placeholder', `cover--${size}`]} style={`--tint:${tint}`} role="img" aria-label={`${title} cover art`}>
-    <span>{title}</span>
-  </div>
-)}
+<div
+  class:list={['cover', `cover--${size}`, cover ? 'cover--has-image' : 'cover--placeholder']}
+  style={`--tint:${tint}`}
+  role={cover ? undefined : 'img'}
+  aria-label={cover ? undefined : `${title} cover art`}
+>
+  {cover && (
+    <img class="cover__img" src={cover} alt={`${title} cover art`} loading="lazy" decoding="async" width="600" height="600" />
+  )}
+  <span class="cover__overlay" aria-hidden="true">
+    <span class="cover__title">{title}</span>
+  </span>
+</div>
