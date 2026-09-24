@@ -10,9 +10,9 @@
     "A trans and Indigenous fronted post-punk experimental project, defying lines of genre and screaming into the void, willing a better world into existence through the power of friendship and chosen family."
   ],
   "lineup": [
-    { "name": "George Finley", "role": "Vocals" },
     { "name": "Marina Hanly", "role": "Guitar, vocals" },
-    { "name": "Clay Finley", "role": "Bass" },
+    { "name": "George Finley", "role": "Vocals" },
+     { "name": "Clay Finley", "role": "Bass" },
     { "name": "Adam Melody", "role": "Keys, guitar" },
     { "name": "Connor Thiessen", "role": "Drums" }
   ],
