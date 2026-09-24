@@ -1,6 +1,6 @@
 ---
 title: Test Release
-type: LP 
+type: LP
 date: 2025-04-11
 summary: The debut full-length, four years in the making.
 cover: /images/graveyard-smash.jpg
