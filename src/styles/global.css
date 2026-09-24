@@ -127,10 +127,25 @@ p { margin: 0; }
 .release-card .cover { margin-bottom: 12px; }
 .release-card__title { font-size: 19px; font-weight: 700; line-height: 1.25; }
 
-.cover { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 3px; }
-.cover--placeholder { display: flex; align-items: center; justify-content: center; background: var(--tint); padding: 16px; }
-.cover--placeholder span { font-family: var(--display); font-size: clamp(26px, 3vw, 40px); line-height: 1; text-align: center; }
-.cover--large.cover--placeholder span { font-size: clamp(36px, 4vw, 56px); }
+/* Covers: artwork under a tinted overlay with the title. On hover or keyboard focus the
+   overlay fades out to reveal the artwork. Without artwork the tint is solid and stays put. */
+.cover { position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 3px; overflow: hidden; background: var(--tint); }
+.cover__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cover__overlay {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 16px;
+  background: color-mix(in srgb, var(--tint) 72%, transparent);
+  transition: opacity 0.35s ease;
+}
+.cover__title { font-family: var(--display); font-size: clamp(26px, 3vw, 40px); line-height: 1; text-align: center; color: var(--ink); text-shadow: 0 1px 12px rgb(0 0 0 / 0.55); }
+.cover--large .cover__title { font-size: clamp(36px, 4vw, 56px); }
+.cover--placeholder .cover__overlay { background: none; }
+
+.release-card:hover .cover--has-image .cover__overlay,
+.release-card:focus-visible .cover--has-image .cover__overlay,
+.cover--large.cover--has-image:hover .cover__overlay { opacity: 0; }
+
+/* Touch screens have no hover, so the title stays visible; a tap selects the release as before. */
+@media (prefers-reduced-motion: reduce) { .cover__overlay { transition: none; } }
 
 .release-panel { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); background: var(--bg-raised); border: 1px solid var(--rule); border-radius: 6px; padding: clamp(20px, 3.4vw, 48px); }
 @media (max-width: 820px) { .release-panel { grid-template-columns: 1fr; } }
