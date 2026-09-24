@@ -3,18 +3,32 @@
   "tagline": "Psychedelic post-punk queercore.",
   "intro": "Like all the cryptids, because you believe in us, we exist.",
   "location": "Vancouver, BC · Unceded Coast Salish territories",
-  "hero_image": "",
   "accent": "#603cba",
   "bio": [
     "Rougaroux is a five-piece post-punk band from the stolen lands of the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh (Squamish), and səlilwətaɬ (Tsleil-Waututh) Nations, otherwise known as Vancouver, BC.",
     "A trans and Indigenous fronted post-punk experimental project, defying lines of genre and screaming into the void, willing a better world into existence through the power of friendship and chosen family."
   ],
   "lineup": [
-    { "name": "Marina Hanly", "role": "Guitar, vocals" },
-    { "name": "George Finley", "role": "Vocals" },
-     { "name": "Clay Finley", "role": "Bass" },
-    { "name": "Adam Melody", "role": "Keys, guitar" },
-    { "name": "Connor Thiessen", "role": "Drums" }
+    {
+      "name": "Marina Hanly",
+      "role": "Guitar, vocals"
+    },
+    {
+      "name": "George Finley",
+      "role": "Vocals"
+    },
+    {
+      "name": "Clay Finley",
+      "role": "Bass"
+    },
+    {
+      "name": "Adam Melody",
+      "role": "Keys, guitar"
+    },
+    {
+      "name": "Connor Thiessen",
+      "role": "Drums"
+    }
   ],
   "lineup_note": "Additional guitar: Cam Thiessen",
   "press": [
@@ -25,11 +39,10 @@
     }
   ],
   "email": "rougarouxtheband@gmail.com",
-  "epk_url": "",
   "links": {
     "bandcamp": "https://rougaroux.bandcamp.com/",
     "spotify": "https://open.spotify.com/artist/5z3S44N4AUJQaAutk2IdGq",
-    "instagram": "",
+    "instagram": "https://www.instagram.com/marinafromrougaroux",
     "facebook": "https://www.facebook.com/rougarouxtheband/"
   },
   "land_acknowledgement": "All songs are written and performed on the unceded territory of the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh (Squamish), and səlilwətaɬ (Tsleil-Waututh) Nations."
