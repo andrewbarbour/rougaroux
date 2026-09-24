@@ -166,7 +166,7 @@ const links = [
       const empty = wrap.querySelector<HTMLElement>('.empty');
       if (empty) empty.hidden = wrap.querySelectorAll('.show').length > 0;
     }
-    const firstBtn = upList.querySelector('.btn--ghost');
+    const firstBtn = upList.querySelector('.show__event.btn--ghost');
     firstBtn?.classList.replace('btn--ghost', 'btn--solid');
   }
   document.querySelectorAll<HTMLElement>('.next-up').forEach((n) => {

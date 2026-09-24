@@ -14,6 +14,18 @@ When you save, the website updates by itself within a couple of minutes.
 You never need to delete old shows. Once the date passes, the show moves to the Past tab
 automatically.
 
+## After a show
+
+To point people to a video, photos or a recap of a show:
+
+1. Open **Shows** and choose the show.
+2. Paste the link into **After-show link**.
+3. Type the button label into **After-show button text**, e.g. "Watch the set" or "See photos".
+   Keep it short. If you leave it blank, the button says "After the show".
+4. Save.
+
+The button only appears once the show is in the Past tab, so you can add the link ahead of time.
+
 ## Add a release
 
 1. Open **Releases** and choose **Add an entry**.

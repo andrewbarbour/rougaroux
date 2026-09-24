@@ -178,7 +178,8 @@ p { margin: 0; }
 .show__venue { font-size: 18px; color: var(--ink-soft); }
 .show__with { color: var(--ink-muted); }
 .show__details { font-size: 15px; color: var(--ink-soft); display: flex; flex-direction: column; gap: 4px; }
-.show__action { display: flex; justify-content: flex-end; }
+.show__action { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+[data-list="upcoming"] .show__post { display: none; }
 @media (max-width: 1000px) {
   .show { grid-template-columns: 90px minmax(0, 1fr); align-items: start; }
   .show__day { font-size: 44px; }

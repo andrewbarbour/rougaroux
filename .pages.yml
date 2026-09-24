@@ -30,6 +30,8 @@ content:
       - { name: link, label: Tickets or event link, type: string }
       - { name: accessibility, label: Accessibility notes, type: text, description: "Step-free entry, washrooms, seating, masking policy" }
       - { name: notes, label: Other notes, type: text }
+      - { name: post_event_link_text, label: After-show button text, type: string, description: "Shown on past shows only, e.g. Watch the set or See photos" }
+      - { name: post_event_link, label: After-show link, type: string, description: "Video, photos or recap. The button appears once the show is in Past" }
 
   - name: releases
     label: Releases

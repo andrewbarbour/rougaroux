@@ -27,6 +27,8 @@ const ticket = [s.price, s.ages].filter(Boolean).join(', ');
     {s.notes && <p>{s.notes}</p>}
   </div>
   <div class="show__action">
-    {s.link && <a class:list={['btn', primary ? 'btn--solid' : 'btn--ghost']} href={s.link}>Event info<span class="sr-only"> for {s.city}, {p.long}</span></a>}
+    {s.link && <a class:list={['btn', 'show__event', primary ? 'btn--solid' : 'btn--ghost']} href={s.link}>Event info<span class="sr-only"> for {s.city}, {p.long}</span></a>}
+    {/* Rendered on every show; CSS only reveals it in the Past list, since shows can move there client-side. */}
+    {s.post_event_link && <a class="btn btn--ghost show__post" href={s.post_event_link}>{s.post_event_link_text || 'After the show'}<span class="sr-only"> for {s.city}, {p.long}</span></a>}
   </div>
 </li>

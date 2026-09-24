@@ -18,6 +18,8 @@ const shows = defineCollection({
     link: z.string().optional().default(''),
     accessibility: z.string().optional().default(''),
     notes: z.string().optional().default(''),
+    post_event_link_text: z.string().optional().default(''),
+    post_event_link: z.string().optional().default(''),
   }),
 });
 
