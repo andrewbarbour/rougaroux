@@ -1,9 +1,11 @@
 date: 2024-07-27
 city: Vancouver, BC
 venue: The Fox
-doors: "7:00 PM"
-ages: "19+"
+doors: 7:00 PM
+ages: 19+
 with:
   - AK747's
   - The Brahmankind
 notes: Mean Well single release. Donations collected for Operation Olive Branch.
+post_event_link_text: Watch the set
+post_event_link: https://www.youtube.com/watch?v=zBMFACxajek
