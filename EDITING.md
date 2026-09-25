@@ -31,7 +31,7 @@ The button only appears once the show is in the Past tab, so you can add the lin
 ## Add a release
 
 1. Open **Releases** and choose **Add an entry**.
-2. Fill in the title, type and release date, and paste the Bandcamp page link.
+2. Fill in the title, type and release date, and paste the release's **Bandcamp link**.
 3. Add each song as a row in **Tracklist**, in order.
 4. Upload square cover art (about 1200 × 1200 px).
 5. Optional: add the Bandcamp embed ID to get a playable player. On Bandcamp, open the release,
