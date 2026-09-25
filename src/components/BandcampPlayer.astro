@@ -3,13 +3,19 @@ interface Props { title: string; id?: string; kind?: 'album' | 'track'; url?: st
 const { title, id = '', kind = 'album', url = '', tracks = 1 } = Astro.props;
 // Bandcamp's "Share / Embed" dialog shows the numeric album or track id in the embed code.
 const showList = kind === 'album' && tracks > 1;
-const height = showList ? Math.min(120 + tracks * 33, 472) : 120;
+// Tracks use Bandcamp's slim one-line player, framed to match the "Play on Bandcamp" link below.
+const slim = kind === 'track';
+const height = slim ? 42 : showList ? Math.min(120 + tracks * 33, 472) : 120;
 // artwork=none: the release panel already shows the cover next to the player.
 const src = id
-  ? `https://bandcamp.com/EmbeddedPlayer/${kind}=${id}/size=large/bgcol=16121a/linkcol=b49cff/artwork=none/tracklist=${showList}/transparent=true/`
+  ? `https://bandcamp.com/EmbeddedPlayer/${kind}=${id}/size=${slim ? 'small' : 'large'}/bgcol=${slim ? '0e0c10' : '16121a'}/linkcol=b49cff/artwork=none/tracklist=${showList}/transparent=true/`
   : '';
 ---
-{src ? (
+{src && slim ? (
+  <div class="bc-frame">
+    <iframe class="bc-player" style={`height:${height}px`} src={src} title={`${title} on Bandcamp`} loading="lazy" seamless></iframe>
+  </div>
+) : src ? (
   <iframe class="bc-player" style={`height:${height}px`} src={src} title={`${title} on Bandcamp`} loading="lazy" seamless></iframe>
 ) : url ? (
   <a class="bc-fallback" href={url}>
