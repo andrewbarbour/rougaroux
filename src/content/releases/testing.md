@@ -1,5 +1,5 @@
 ---
-title: Testing
+title: Testing - Track embed type
 type: Single
 date: 2026-09-25
 summary: THis is the one line summary
