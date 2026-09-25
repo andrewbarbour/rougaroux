@@ -46,5 +46,13 @@
     "instagram": "https://www.instagram.com/marinafromrougaroux",
     "facebook": "https://www.facebook.com/rougarouxtheband/"
   },
+  "menu": {
+    "music": "Music",
+    "shows": "Shows",
+    "about": "About",
+    "contact": "Contact",
+    "button_text": "Listen on Bandcamp",
+    "button_link": ""
+  },
   "land_acknowledgement": "All songs are written and performed on the unceded territory of the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh (Squamish), and səlilwətaɬ (Tsleil-Waututh) Nations."
 }

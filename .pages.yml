@@ -108,4 +108,15 @@ content:
           - { name: spotify, label: Spotify, type: string }
           - { name: instagram, label: Instagram, type: string }
           - { name: facebook, label: Facebook, type: string }
+      - name: menu
+        label: Top menu
+        type: object
+        description: "Labels for the menu at the top of every page. Leave one blank to use the default."
+        fields:
+          - { name: music, label: Music link text, type: string }
+          - { name: shows, label: Shows link text, type: string }
+          - { name: about, label: About link text, type: string }
+          - { name: contact, label: Contact link text, type: string }
+          - { name: button_text, label: Button text, type: string, description: "e.g. Listen on Bandcamp" }
+          - { name: button_link, label: Button link, type: string, description: "Leave blank to use the Bandcamp link above" }
       - { name: land_acknowledgement, label: Land acknowledgement (footer), type: text }

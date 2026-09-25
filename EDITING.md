@@ -42,6 +42,9 @@ The button only appears once the show is in the Past tab, so you can add the lin
 Open **Site settings**. Everything on the page that isn't a show or a release lives here,
 including the footer's land acknowledgement and the accent colour.
 
+The wording of the top menu is under **Top menu** in Site settings. You can rename the links and
+change the button's text and where it goes. Leave a field blank to go back to the default.
+
 ## Photos
 
 - Resize photos before uploading: about 1600 px on the long side and under 1 MB. Phone photos
