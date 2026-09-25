@@ -1,5 +1,5 @@
 ---
-title: Graveyard Smash
+title: Graveyard Smash - BC album embed
 type: LP
 date: 2025-04-11
 summary: The debut full-length, four years in the making.
