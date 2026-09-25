@@ -92,6 +92,37 @@ link instead of an embedded player. To find the ID: on the Bandcamp release page
 Share / Embed → Embed this album, and copy the number after `album=` (or `track=` for a single;
 set `bandcamp_kind` to `track`).
 
+## Heading fonts
+
+The band picks the heading font (band name, section titles, release titles) under Site settings →
+Heading font. The dropdown only lists fonts installed in the code, so adding one is a code change:
+
+1. Find the font on [Fontsource](https://fontsource.org) (almost every Google Font is there) and
+   check it has a regular (400) weight.
+2. Install it using its Fontsource ID:
+   ```bash
+   npm install @fontsource/rubik-glitch
+   ```
+3. Import it with the other heading fonts at the top of `src/layouts/Base.astro`:
+   ```js
+   import '@fontsource/rubik-glitch/400.css';
+   ```
+   Browsers only download the font that's selected, so extra imports don't slow the site down.
+4. Add it to `displayFonts` in `src/lib/fonts.ts` with a fallback and a width scale:
+   ```ts
+   'Rubik Glitch': { family: "'Rubik Glitch', Impact, sans-serif", scale: 0.85 },
+   ```
+   `scale` keeps the band name the same width in every font: Pirata One's width for "Rougaroux"
+   divided by the new font's width. To measure, run the site, open the browser console and run:
+   ```js
+   const w = (f) => { const s = document.createElement('span'); s.style.cssText = `font:100px "${f}";position:absolute`; s.textContent = 'Rougaroux'; document.body.append(s); const x = s.offsetWidth; s.remove(); return x; };
+   await document.fonts.load('100px "Pirata One"'); await document.fonts.load('100px "Rubik Glitch"'); w('Pirata One') / w('Rubik Glitch');
+   ```
+5. Add the same name to the `display_font` options in `.pages.yml`. It must match the key in
+   `fonts.ts` exactly; an unknown name falls back to Pirata One.
+6. Build, select the font in `src/data/site.json`, and check the hero title fits at phone width
+   (375 px) before switching it back and committing.
+
 ## Before launch
 
 - [ ] Confirm the lineup, current names and pronouns with the band (`src/data/site.json`).
