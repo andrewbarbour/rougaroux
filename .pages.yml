@@ -56,11 +56,11 @@ content:
       - { name: summary, label: One-line summary, type: string }
       - { name: cover, label: Cover art, type: image, description: "Square, about 1200×1200 px, under 1 MB" }
       - { name: bandcamp_url, label: Bandcamp page link, type: string }
-      - { name: bandcamp_id, label: Bandcamp embed ID, type: string, description: "The number after album= or track= in Bandcamp's Share/Embed code" }
       - name: bandcamp_kind
         label: Bandcamp embed type
         type: select
         options: { values: [album, track] }
+      - { name: bandcamp_id, label: Bandcamp embed ID, type: string, description: "The number after album= or track= in Bandcamp's Share/Embed code" }
       - { name: spotify_url, label: Spotify link, type: string }
       - { name: tracks, label: Tracklist, type: string, list: true }
       - { name: tint, label: Placeholder colour (used until cover art is added), type: string }
