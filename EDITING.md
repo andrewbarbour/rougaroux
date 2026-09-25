@@ -45,6 +45,10 @@ including the footer's land acknowledgement and the accent colour.
 The wording of the top menu is under **Top menu** in Site settings. You can rename the links and
 change the button's text and where it goes. Leave a field blank to go back to the default.
 
+To change the lettering used for the band name and headings, pick a different **Heading font** in
+Site settings. Each font is sized automatically so the band name still fits. To see what they look
+like first, search for the name at https://fonts.google.com.
+
 ## Photos
 
 - Resize photos before uploading: about 1600 px on the long side and under 1 MB. Phone photos

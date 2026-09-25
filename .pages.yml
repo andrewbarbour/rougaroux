@@ -81,6 +81,11 @@ content:
         label: Accent colour
         type: select
         options: { values: ["#603cba", "#8b1e3f", "#2f6b4f", "#9a4a12"] }
+      - name: display_font
+        label: Heading font
+        type: select
+        description: "Used for the band name, section titles and release titles. Preview them at fonts.google.com"
+        options: { values: ["Pirata One", "UnifrakturMaguntia", "Metal Mania", "New Rocker", "Creepster", "Special Elite", "Bebas Neue", "Anton"] }
       - { name: bio, label: Bio paragraphs, type: text, list: true }
       - name: lineup
         label: Lineup
