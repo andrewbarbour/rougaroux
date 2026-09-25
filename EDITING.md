@@ -34,8 +34,10 @@ The button only appears once the show is in the Past tab, so you can add the lin
 2. Fill in the title, type and release date, and paste the release's **Bandcamp link**.
 3. Add each song as a row in **Tracklist**, in order.
 4. Upload square cover art (about 1200 × 1200 px).
-5. Optional: add the Bandcamp embed ID to get a playable player. On Bandcamp, open the release,
-   choose **Share / Embed → Embed this album**, and copy the number after `album=`.
+5. Optional: add a playable Bandcamp player. Set **Bandcamp embed type** to `album` or `track`
+   (leave it on `none` for just a link), then fill in **Bandcamp embed ID**: on Bandcamp, open the
+   release, choose **Share / Embed → Embed this album**, and copy the number after `album=`
+   (or `track=` for a single track).
 6. Put credits and thanks in **Credits and notes**. Leave a blank line between paragraphs.
 7. Save. The newest release automatically becomes the one featured at the top of Music.
 

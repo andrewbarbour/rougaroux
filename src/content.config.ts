@@ -34,7 +34,8 @@ const releases = defineCollection({
     cover: z.string().optional().default(''),
     bandcamp_url: z.string().optional().default(''),
     bandcamp_id: z.string().optional().default(''),
-    bandcamp_kind: z.enum(['album', 'track']).optional().default('album'),
+    // Blank (a select left untouched in Pages CMS) means none.
+    bandcamp_kind: z.preprocess((v) => (v === '' || v === null ? undefined : v), z.enum(['none', 'album', 'track']).default('none')),
     spotify_url: z.string().optional().default(''),
     tracks: z.array(z.string()).optional().default([]),
     tint: z.string().optional().default('#2a1d3f'),
