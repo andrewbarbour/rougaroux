@@ -164,9 +164,6 @@ p { margin: 0; }
 
 .bc-player { width: 100%; border: 0; border-radius: 6px; background: var(--bg); }
 .bc-fallback { display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 14px 18px; border: 1px solid var(--rule-strong); border-radius: 6px; background: var(--bg); text-decoration: none; font-weight: 700; }
-.bc-frame { display: flex; align-items: center; min-height: 64px; padding: 10px 12px; border: 1px solid var(--rule-strong); border-radius: 6px; background: var(--bg); }
-.bc-frame .bc-player { border-radius: 0; background: transparent; }
-
 /* Shows */
 .tabs { display: flex; gap: 8px; }
 .tab { min-height: 44px; padding: 10px 22px; border-radius: 999px; border: 1px solid var(--rule-strong); background: transparent; color: var(--ink); font: inherit; font-weight: 700; cursor: pointer; }
