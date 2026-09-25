@@ -4,8 +4,9 @@ const { title, id = '', kind = 'album', url = '', tracks = 1 } = Astro.props;
 // Bandcamp's "Share / Embed" dialog shows the numeric album or track id in the embed code.
 const showList = kind === 'album' && tracks > 1;
 const height = showList ? Math.min(120 + tracks * 33, 472) : 120;
+// artwork=none: the release panel already shows the cover next to the player.
 const src = id
-  ? `https://bandcamp.com/EmbeddedPlayer/${kind}=${id}/size=large/bgcol=16121a/linkcol=b49cff/artwork=small/tracklist=${showList}/transparent=true/`
+  ? `https://bandcamp.com/EmbeddedPlayer/${kind}=${id}/size=large/bgcol=16121a/linkcol=b49cff/artwork=none/tracklist=${showList}/transparent=true/`
   : '';
 ---
 {src ? (
