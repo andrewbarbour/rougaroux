@@ -125,3 +125,10 @@ content:
           - { name: button_text, label: Button text, type: string, description: "e.g. Listen on Bandcamp" }
           - { name: button_link, label: Button link, type: string, description: "Leave blank to use the Bandcamp link above" }
       - { name: land_acknowledgement, label: Land acknowledgement (footer), type: text }
+
+  # Shows EDITING.md in the sidebar so editors can read the guide and find who to contact.
+  - name: help
+    label: "Help & who to contact"
+    type: file
+    path: EDITING.md
+    format: raw

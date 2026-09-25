@@ -1,5 +1,7 @@
 # Updating the Rougaroux website
 
+> This is the help page. Please read it, but don't change it here.
+
 You edit the site at **https://app.pagescms.org** by signing in with your GitHub account.
 When you save, the website updates by itself within a couple of minutes.
 
