@@ -88,6 +88,21 @@ content:
         type: select
         description: "Used for the band name, section titles and release titles. Preview them at fonts.google.com"
         options: { values: ["Pirata One", "UnifrakturMaguntia", "Metal Mania", "New Rocker", "Creepster", "Special Elite", "Bebas Neue", "Anton"] }
+      - name: bandcamp_player
+        label: Bandcamp player colours
+        type: object
+        description: "Colours for the Bandcamp players on release pages. Bandcamp only offers these background options, and it sets the plain text colour itself to suit."
+        fields:
+          - name: background
+            label: Background
+            type: select
+            description: "Blend with page shows the player straight on the dark release panel"
+            options: { values: ["Blend with page", "Dark", "Light"] }
+          - name: link
+            label: Title and link colour
+            type: string
+            description: "The release title, band name and playing track. Default #b49cff"
+            pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #b49cff" }
       - { name: bio, label: Bio paragraphs, type: text, list: true }
       - name: lineup
         label: Lineup

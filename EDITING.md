@@ -53,6 +53,10 @@ To change the lettering used for the band name and headings, pick a different **
 Site settings. Each font is sized automatically so the band name still fits. To see what they look
 like first, search for the name at https://fonts.google.com.
 
+**Bandcamp player colours** in Site settings changes the look of the Bandcamp players on release
+pages. Pick a background (blend with the page, dark or light) and type a colour code like
+`#b49cff` for the title and link colour. Bandcamp sets the rest of the text itself.
+
 ## Photos
 
 - Resize photos before uploading: about 1600 px on the long side and under 1 MB. Phone photos
