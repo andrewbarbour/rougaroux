@@ -89,6 +89,15 @@ const home = Astro.url.pathname === '/' ? '' : '/';
         nav.classList.remove('is-open');
       }
     });
+
+    // Links to other sites (Bandcamp, Spotify, event and after-show links, links in credits)
+    // open in a new tab. Done here so CMS-entered links are covered without touching each template.
+    for (const a of document.querySelectorAll<HTMLAnchorElement>('a[href^="http"]')) {
+      if (a.host === location.host) continue;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.insertAdjacentHTML('beforeend', '<span class="sr-only"> (opens in a new tab)</span>');
+    }
   </script>
 </body>
 </html>
