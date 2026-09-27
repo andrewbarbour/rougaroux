@@ -4,9 +4,8 @@ type: LP
 date: 2025-04-11
 summary: The debut full-length, four years in the making.
 cover: /images/graveyard-smash.jpg
+bandcamp_kind: none
 bandcamp_url: https://rougaroux.bandcamp.com/album/graveyard-smash
-bandcamp_id: "1221609694"
-bandcamp_kind: album
 spotify_url: https://open.spotify.com/artist/5z3S44N4AUJQaAutk2IdGq
 tracks:
   - Mean Well
