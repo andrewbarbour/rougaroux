@@ -20,7 +20,7 @@ const paragraphs = (text: string) => text.split(/\n\s*\n/).map((p) => p.trim()).
     <p class="meta">{typeLabel}, released {dateParts(r.date).long}</p>
     <Heading class="release-panel__title">{r.title}</Heading>
     {r.summary && <div class="release-panel__text">{paragraphs(r.summary).map((p) => <p>{p}</p>)}</div>}
-    <BandcampPlayer title={r.title} id={r.bandcamp_id} kind={r.bandcamp_kind} tracks={r.tracks.length} />
+    <BandcampPlayer title={r.title} id={r.bandcamp_embed.id} kind={r.bandcamp_embed.type} tracks={r.tracks.length} />
     {r.tracks.length > 0 && (
       <ol class="tracklist">
         {r.tracks.map((t) => <li>{t}</li>)}

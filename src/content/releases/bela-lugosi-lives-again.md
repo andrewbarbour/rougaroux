@@ -5,8 +5,9 @@ date: 2024-12-25
 summary: A two-track Christmas Day release.
 cover: ""
 bandcamp_url: https://rougaroux.bandcamp.com/album/bela-lugosi-lives-again
-bandcamp_id: ""
-bandcamp_kind: album
+bandcamp_embed:
+  type: album
+  id: ""
 spotify_url: ""
 tracks:
   - Bela Lugosi Lives Again!

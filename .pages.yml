@@ -46,23 +46,28 @@ content:
         sort: date
         order: desc
     fields:
-      - { name: cover, label: Cover art, type: image, description: "Square, about 1200×1200 px, under 1 MB" }
-      - { name: tint, label: Cover tint (optional), type: string, description: "Leave blank to use a dark shade of the accent colour from Site Style. Only fill in to give this release its own colour, e.g. #3a1420", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #3a1420" } }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Release date, type: date, required: true, options: { format: yyyy-MM-dd } }
       - name: type
         label: Type
         type: select
         required: true
         options: { values: [LP, EP, Single, 2-track] }
-      - { name: date, label: Release date, type: date, required: true, options: { format: yyyy-MM-dd } }
-      - { name: title, label: Title, type: string, required: true }
+      - { name: cover, label: Cover art, type: image, description: "Square, about 1200×1200 px, under 1 MB" }
+      - { name: tint, label: Cover tint (optional), type: string, description: "Leave blank to use a dark shade of the accent colour from Site Style. Only fill in to give this release its own colour, e.g. #3a1420", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #3a1420" } }
       - { name: summary, label: Text Block 1, type: text, description: "Shown under the title, above the player. Leave a blank line between paragraphs. The first paragraph is also used as the page description in search results and link previews" }
-      - name: bandcamp_kind
-        label: Bandcamp embed type
-        type: select
-        default: none
-        description: "none (or blank) shows no player"
-        options: { values: [none, album, track], placeholder: none }
-      - { name: bandcamp_id, label: Bandcamp embed ID, type: string, description: "The number after album= or track= in Bandcamp's Share/Embed code" }
+      - name: bandcamp_embed
+        label: Bandcamp embed
+        type: object
+        description: "The playable Bandcamp player, shown under Text Block 1."
+        fields:
+          - name: type
+            label: Embed type
+            type: select
+            default: none
+            description: "none (or blank) shows no player"
+            options: { values: [none, album, track], placeholder: none }
+          - { name: id, label: Embed ID, type: string, description: "The number after album= or track= in Bandcamp's Share/Embed code" }
       - { name: tracks, label: Tracklist, type: string, list: true }
       - { name: body, label: Credits and notes, type: text }
       - { name: text_block_2, label: Text Block 2, type: text, description: "Shown after the credits and notes, above the button. Leave a blank line between paragraphs" }

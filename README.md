@@ -97,10 +97,10 @@ How covers display (`src/components/Cover.astro`, styled in the "Covers" block o
 
 ## Bandcamp players
 
-A release gets an embedded player when `bandcamp_kind` is `album` or `track` and `bandcamp_id` is
-filled in; otherwise it shows none. To find the ID: on the Bandcamp release page choose
-Share / Embed → Embed this album, and copy the number after `album=` (or `track=` for a single;
-set `bandcamp_kind` to `track`).
+A release gets an embedded player when `bandcamp_embed.type` is `album` or `track` and
+`bandcamp_embed.id` is filled in; otherwise it shows none. To find the ID: on the Bandcamp release
+page choose Share / Embed → Embed this album, and copy the number after `album=` (or `track=` for a
+single; set `bandcamp_embed.type` to `track`).
 
 Each release can also have an optional call to action button (`cta`: icon, text, url), shown after
 Text Block 2 and rendered by `src/components/CtaButton.astro`. Icon names there must match the `cta.icon`

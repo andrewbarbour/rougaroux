@@ -35,9 +35,15 @@ const releases = defineCollection({
     text_block_2: z.string().nullish().transform((v) => v ?? ''),
     cover: z.string().optional().default(''),
     bandcamp_url: z.string().optional().default(''),
-    bandcamp_id: z.string().optional().default(''),
-    // Blank (a select left untouched in Pages CMS) means none.
-    bandcamp_kind: z.preprocess((v) => (v === '' || v === null ? undefined : v), z.enum(['none', 'album', 'track']).default('none')),
+    // Bandcamp embed group in Pages CMS. A blank type (a select left untouched) means none, and an
+    // ID saved as a bare number is read as text.
+    bandcamp_embed: z
+      .object({
+        type: z.preprocess((v) => (v === '' || v === null ? undefined : v), z.enum(['none', 'album', 'track']).default('none')),
+        id: z.union([z.string(), z.number()]).nullish().transform((v) => (v == null ? '' : String(v).trim())),
+      })
+      .nullish()
+      .transform((v) => v ?? { type: 'none' as const, id: '' }),
     spotify_url: z.string().optional().default(''),
     // Call to action button; Pages CMS drops empty fields, so each part may be missing.
     cta: z

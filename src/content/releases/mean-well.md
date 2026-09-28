@@ -5,8 +5,9 @@ date: 2024-07-27
 summary: One of the weirder ones, celebrated with a release show at The Fox.
 cover: ""
 bandcamp_url: https://rougaroux.bandcamp.com/track/mean-well
-bandcamp_id: ""
-bandcamp_kind: track
+bandcamp_embed:
+  type: track
+  id: ""
 spotify_url: ""
 tracks:
   - Mean Well

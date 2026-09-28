@@ -4,8 +4,9 @@ type: LP
 date: 2025-04-11
 summary: The debut full-length, four years in the making.
 cover: /images/graveyard-smash.jpg
-bandcamp_kind: track
-bandcamp_id: "1672697139"
+bandcamp_embed:
+  type: track
+  id: "1672697139"
 bandcamp_url: https://rougaroux.bandcamp.com/album/graveyard-smash
 spotify_url: https://open.spotify.com/artist/5z3S44N4AUJQaAutk2IdGq
 tracks:

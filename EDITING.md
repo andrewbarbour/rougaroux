@@ -31,11 +31,11 @@ The button only appears once the show is in the Past tab, so you can add the lin
 ## Add a release
 
 1. Open **Releases** and choose **Add an entry**.
-2. Fill in the title, type and release date, and paste the release's **Bandcamp link**.
+2. Fill in the title, release date and type, and paste the release's **Bandcamp link**.
 3. Add each song as a row in **Tracklist**, in order.
 4. Upload square cover art (about 1200 × 1200 px).
-5. Optional: add a playable Bandcamp player. Set **Bandcamp embed type** to `album` or `track`
-   (leave it on `none` for no player), then fill in **Bandcamp embed ID**: on Bandcamp, open the
+5. Optional: add a playable Bandcamp player. Under **Bandcamp embed**, set **Embed type** to `album`
+   or `track` (leave it on `none` for no player), then fill in **Embed ID**: on Bandcamp, open the
    release, choose **Share / Embed → Embed this album**, and copy the number after `album=`
    (or `track=` for a single track).
 6. Write a short intro in **Text Block 1**. It appears under the title, above the player.
