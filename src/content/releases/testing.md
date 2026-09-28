@@ -1,5 +1,5 @@
 ---
-title: Testing - Track embed type
+title: Pagan
 date: 2026-09-25
 type: Single
 cover: /images/Screenshot 2026-09-25 090245.png
