@@ -102,8 +102,8 @@ filled in; otherwise it shows none. To find the ID: on the Bandcamp release page
 Share / Embed → Embed this album, and copy the number after `album=` (or `track=` for a single;
 set `bandcamp_kind` to `track`).
 
-Each release can also have an optional call to action button (`cta`: icon, text, url) under the
-summary, rendered by `src/components/CtaButton.astro`. Icon names there must match the `cta.icon`
+Each release can also have an optional call to action button (`cta`: icon, text, url), shown after
+Text Block 2 and rendered by `src/components/CtaButton.astro`. Icon names there must match the `cta.icon`
 options in `.pages.yml`.
 
 ## Heading fonts

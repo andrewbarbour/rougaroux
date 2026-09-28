@@ -9,8 +9,10 @@ export async function getStaticPaths() {
 }
 interface Props { release: CollectionEntry<'releases'> }
 const { release } = Astro.props;
+// Text Block 1 can hold several paragraphs; the first one makes the page description.
+const description = release.data.summary.split(/\n\s*\n/)[0].replace(/\s+/g, ' ').trim();
 ---
-<Base title={release.data.title} description={release.data.summary || `${release.data.title} by Rougaroux.`} image={release.data.cover || undefined}>
+<Base title={release.data.title} description={description || `${release.data.title} by Rougaroux.`} image={release.data.cover || undefined}>
   <section class="section wrap">
     <p><a class="back" href="/#music">All music</a></p>
     <ReleasePanel release={release} headingLevel="h1" />

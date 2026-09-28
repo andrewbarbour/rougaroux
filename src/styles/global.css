@@ -156,7 +156,7 @@ p { margin: 0; }
 @media (max-width: 820px) { .release-panel { grid-template-columns: 1fr; } }
 .release-panel__body { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
 .release-panel__title { font-size: clamp(34px, 3.4vw, 48px); font-weight: 800; line-height: 1.05; }
-.release-panel__summary { font-size: 18px; color: var(--ink-soft); max-width: 40em; }
+.release-panel__text { font-size: 18px; color: var(--ink-soft); max-width: 40em; display: flex; flex-direction: column; gap: 12px; }
 .release-panel__links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .release-panel__links a { font-weight: 700; padding-block: 8px; }
 .credits { font-size: 15px; color: var(--ink-muted); max-width: 44em; display: flex; flex-direction: column; gap: 10px; }

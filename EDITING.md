@@ -38,11 +38,18 @@ The button only appears once the show is in the Past tab, so you can add the lin
    (leave it on `none` for no player), then fill in **Bandcamp embed ID**: on Bandcamp, open the
    release, choose **Share / Embed → Embed this album**, and copy the number after `album=`
    (or `track=` for a single track).
-6. Optional: add a **Call to action button** under the summary, e.g. "Pre-order the LP" or
-   "Watch the video". Pick an icon (or none), type the button text and paste the link. The button
-   only appears when both the text and the link are filled in.
-7. Put credits and thanks in **Credits and notes**. Leave a blank line between paragraphs.
-8. Save. The newest release automatically becomes the one featured at the top of Music.
+6. Write a short intro in **Text Block 1**. It appears under the title, above the player.
+7. Put credits and thanks in **Credits and notes**.
+8. Optional: add more words in **Text Block 2**. It appears after the credits and notes.
+9. Optional: add a **Call to action button**, e.g. "Pre-order the LP" or "Watch the video". Pick an
+   icon (or none), type the button text and paste the link. The button only appears when both the
+   text and the link are filled in.
+10. Save. The newest release automatically becomes the one featured at the top of Music.
+
+In every text box, leave a blank line between paragraphs.
+
+On the page, a release shows in this order: Text Block 1, the Bandcamp player, the tracklist,
+credits and notes, Text Block 2, the button, then the Bandcamp and Spotify links.
 
 ## Add merch
 

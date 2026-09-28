@@ -30,7 +30,9 @@ const releases = defineCollection({
     title: z.string(),
     type: z.enum(['LP', 'EP', 'Single', '2-track']),
     date: z.coerce.date(),
-    summary: z.string().optional().default(''),
+    // Text Block 1 in Pages CMS (the key predates the rename).
+    summary: z.string().nullish().transform((v) => v ?? ''),
+    text_block_2: z.string().nullish().transform((v) => v ?? ''),
     cover: z.string().optional().default(''),
     bandcamp_url: z.string().optional().default(''),
     bandcamp_id: z.string().optional().default(''),

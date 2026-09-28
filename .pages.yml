@@ -53,7 +53,7 @@ content:
         required: true
         options: { values: [LP, EP, Single, 2-track] }
       - { name: date, label: Release date, type: date, required: true, options: { format: yyyy-MM-dd } }
-      - { name: summary, label: One-line summary, type: string }
+      - { name: summary, label: Text Block 1, type: text, description: "Shown under the title, above the player. Leave a blank line between paragraphs. The first paragraph is also used as the page description in search results and link previews" }
       - { name: cover, label: Cover art, type: image, description: "Square, about 1200×1200 px, under 1 MB" }
       - name: bandcamp_kind
         label: Bandcamp embed type
@@ -67,7 +67,7 @@ content:
       - name: cta
         label: Call to action button
         type: object
-        description: "Optional button under the summary. It only appears when both the text and link are filled in."
+        description: "Optional button after Text Block 2, above the Bandcamp and Spotify links. It only appears when both the text and link are filled in."
         fields:
           - name: icon
             label: Icon
@@ -78,6 +78,7 @@ content:
       - { name: tracks, label: Tracklist, type: string, list: true }
       - { name: tint, label: Cover tint (optional), type: string, description: "Leave blank to use a dark shade of the accent colour from Site Style. Only fill in to give this release its own colour, e.g. #3a1420", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #3a1420" } }
       - { name: body, label: Credits and notes, type: text }
+      - { name: text_block_2, label: Text Block 2, type: text, description: "Shown after the credits and notes, above the button. Leave a blank line between paragraphs" }
 
   - name: merch
     label: Merch
