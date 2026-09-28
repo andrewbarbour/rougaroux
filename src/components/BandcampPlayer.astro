@@ -1,15 +1,15 @@
 ---
-import site from '../data/site.json';
+import style from '../data/style.json';
 import { coloursFromSettings } from '../lib/colours';
 
 interface Props { title: string; id?: string; kind?: 'none' | 'album' | 'track'; tracks?: number }
 const { title, id = '', kind = 'none', tracks = 1 } = Astro.props;
 
-// Colours from Site settings → Bandcamp player colours. Bandcamp honours any link colour, but for the
+// Colours from Site Style → Bandcamp player colours. Bandcamp honours any link colour, but for the
 // background it only has a light and a dark theme (other bgcol values snap to one of them) and it
 // picks the plain text colour to suit. "Blend with page" is transparent over the release panel.
 const hex = (v: unknown) => (typeof v === 'string' && /^#?[0-9a-f]{6}$/i.test(v.trim()) ? v.trim().replace('#', '') : '');
-const colours = (site as { bandcamp_player?: { background?: string; link?: string } }).bandcamp_player ?? {};
+const colours = (style as { bandcamp_player?: { background?: string; link?: string } }).bandcamp_player ?? {};
 const customBg = { Dark: '333333', Light: 'ffffff' }[colours.background ?? ''] ?? '';
 const link = hex(colours.link) || 'b49cff';
 // Bandcamp's "Share / Embed" dialog shows the numeric album or track id in the embed code.
@@ -19,7 +19,7 @@ const slim = kind === 'track';
 const height = slim ? 42 : showList ? Math.min(120 + tracks * 33, 472) : 120;
 // Without a custom background the player is transparent over the panel; bgcol then only tells
 // Bandcamp whether the page behind it is light or dark, so it picks readable text.
-const bg = customBg || coloursFromSettings(site).panel.slice(1);
+const bg = customBg || coloursFromSettings(style).panel.slice(1);
 // artwork=none: the release panel already shows the cover next to the player.
 // kind 'none' skips the embed, even with an ID filled in.
 const src = id && kind !== 'none'

@@ -1,4 +1,4 @@
-// Site colours from Site settings → Site colours. Each setting maps to a CSS variable that the
+// Site colours from Site Style → Site colours. Each setting maps to a CSS variable that the
 // layout writes on :root; the other shades (section banding, footer, divider lines) are derived
 // from these in global.css. Keep the keys in sync with the colours fields in .pages.yml.
 export const defaultColours = {
@@ -36,11 +36,10 @@ export function siteColours(custom: Partial<Record<string, string>> = {}, useDef
   return Object.fromEntries(keys.map((k) => [k, (!useDefaults && hex(custom[k])) || defaultColours[k]])) as Record<ColourKey, string>;
 }
 
-// Reads the colours from site.json. The accent used to be a top-level setting; it's still read as
-// a fallback until Site settings is saved with the new Site colours group.
-export function coloursFromSettings(site: object) {
-  const s = site as { colours?: Record<string, string>; use_default_colours?: boolean; accent?: string };
-  return siteColours({ accent: s.accent, ...s.colours }, s.use_default_colours === true);
+// Reads the colours from style.json (Site Style in Pages CMS).
+export function coloursFromSettings(style: object) {
+  const s = style as { colours?: Record<string, string>; use_default_colours?: boolean };
+  return siteColours(s.colours, s.use_default_colours === true);
 }
 
 export function coloursCss(colours: Record<ColourKey, string>) {

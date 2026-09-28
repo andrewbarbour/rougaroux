@@ -1,14 +1,14 @@
 /* Rougaroux: tokens */
 :root {
   /* --accent, --accent-ink, --bg, --bg-raised, --ink, --ink-soft, --ink-muted and --link-hover are
-     set in the layout from Site settings → Site colours (see src/lib/colours.ts). Don't define
+     set in the layout from Site Style → Site colours (see src/lib/colours.ts). Don't define
      them here: this stylesheet loads after the layout's and would override them. */
   --bg-alt: color-mix(in srgb, var(--bg), #fff 2%);
   --bg-deep: color-mix(in srgb, var(--bg), #000 35%);
   --rule: color-mix(in srgb, var(--ink-muted) 16%, var(--bg));
   --rule-strong: color-mix(in srgb, var(--ink-muted) 50%, var(--bg));
 
-  /* --display and --display-scale are set in the layout too, from site.json's display_font
+  /* --display and --display-scale are set in the layout too, from style.json's display_font
      (see src/lib/fonts.ts) */
   --body: 'Archivo', 'Noto Sans', system-ui, sans-serif;
   --mono: 'Space Mono', ui-monospace, monospace;

@@ -1,0 +1,18 @@
+{
+  "colours": {
+    "accent": "#603cba",
+    "accent_text": "#ffffff",
+    "background": "#0e0c10",
+    "panel": "#16121a",
+    "text": "#ece4d6",
+    "text_secondary": "#c8c0cf",
+    "text_muted": "#a79fb0",
+    "link_hover": "#c9b8ff"
+  },
+  "use_default_colours": false,
+  "display_font": "Pirata One",
+  "bandcamp_player": {
+    "background": "Blend with page",
+    "link": "#b49cff"
+  }
+}

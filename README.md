@@ -21,7 +21,8 @@ npm run preview   # serves dist/
 | Shows (one file per show) | `src/content/shows/*.yaml` |
 | Releases (one file per release; body = credits) | `src/content/releases/*.md` |
 | Merch items (one file per item) | `src/content/merch/*.yaml` |
-| Bio, lineup, press quotes, links, email, site colours | `src/data/site.json` |
+| Bio, lineup, press quotes, links, email, menu, merch section | `src/data/site.json` |
+| Site Style: colours, heading font, Bandcamp player colours | `src/data/style.json` |
 | Colour defaults and CSS variable mapping | `src/lib/colours.ts` |
 | Uploaded images, including release artwork | `public/images/` |
 | Content schema (validates every build) | `src/content.config.ts` |
@@ -53,7 +54,8 @@ Netlify works the same way with the same build settings; `public/_headers` is ho
 ## Setting up the CMS (Pages CMS)
 
 1. Go to https://app.pagescms.org and sign in with GitHub.
-2. Open this repository. It reads `.pages.yml` and shows Shows, Releases and Site settings.
+2. Open this repository. It reads `.pages.yml` and shows Shows, Releases, Merch, Site settings
+  and Site Style.
 3. Give each band member who will edit a GitHub account with write access to the repo
   (or collaborator access through Pages CMS). Every save is a commit, so any mistake can be
   reverted from the GitHub history.
@@ -101,7 +103,7 @@ options in `.pages.yml`.
 
 ## Heading fonts
 
-The band picks the heading font (band name, section titles, release titles) under Site settings →
+The band picks the heading font (band name, section titles, release titles) under Site Style →
 Heading font. The dropdown only lists fonts installed in the code, so adding one is a code change:
 
 1. Find the font on [Fontsource](https://fontsource.org) (almost every Google Font is there) and
@@ -127,7 +129,7 @@ Heading font. The dropdown only lists fonts installed in the code, so adding one
    ```
 5. Add the same name to the `display_font` options in `.pages.yml`. It must match the key in
    `fonts.ts` exactly; an unknown name falls back to Pirata One.
-6. Build, select the font in `src/data/site.json`, and check the hero title fits at phone width
+6. Build, select the font in `src/data/style.json`, and check the hero title fits at phone width
    (375 px) before switching it back and committing.
 
 ## Before launch

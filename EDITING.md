@@ -61,23 +61,28 @@ To take an item down, delete its entry.
 
 ## Change the bio, lineup, links or press quotes
 
-Open **Site settings**. Everything on the page that isn't a show or a release lives here,
-including the footer's land acknowledgement and the site colours.
+Open **Site settings**. The words and links on the page that aren't a show, release or merch item
+live here, including the footer's land acknowledgement. How the site looks is in **Site Style**
+(see below).
 
 The wording of the top menu is under **Top menu** in Site settings. You can rename the links and
 change the button's text and where it goes. Leave a field blank to go back to the default.
 
-To change the lettering used for the band name and headings, pick a different **Heading font** in
-Site settings. Each font is sized automatically so the band name still fits. To see what they look
-like first, search for the name at https://fonts.google.com.
+## Change the look: Site Style
 
-**Bandcamp player colours** in Site settings changes the look of the Bandcamp players on release
-pages. Pick a background (blend with the page, dark or light) and type a colour code like
-`#b49cff` for the title and link colour. Bandcamp sets the rest of the text itself.
+Colours, the heading font and the Bandcamp player's look are all in **Site Style**.
 
-## Change the site colours
+To change the lettering used for the band name and headings, pick a different **Heading font**.
+Each font is sized automatically so the band name still fits. To see what they look like first,
+search for the name at https://fonts.google.com.
 
-Open **Site settings → Site colours**. Each colour is a code like `#603cba`; you can pick one at
+**Bandcamp player colours** changes the look of the Bandcamp players on release pages. Pick a
+background (blend with the page, dark or light) and type a colour code like `#b49cff` for the
+title and link colour. Bandcamp sets the rest of the text itself.
+
+### Site colours
+
+Open **Site Style → Site colours**. Each colour is a code like `#603cba`; you can pick one at
 https://htmlcolorcodes.com. Divider lines, the footer and other small shades follow your choices
 automatically. Keep text colours clearly lighter (or darker) than the backgrounds so everything
 stays easy to read.

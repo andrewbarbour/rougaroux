@@ -109,43 +109,6 @@ content:
       - { name: intro, label: Intro line, type: string }
       - { name: location, label: Location line, type: string }
       - { name: hero_image, label: Hero photo, type: image, description: "Landscape or portrait, about 1600 px wide, under 1 MB" }
-      - name: colours
-        label: Site colours
-        type: object
-        description: "Colour codes like #603cba (pick one at https://htmlcolorcodes.com). Leave a colour blank to use its original. Other shades, like divider lines and the footer, follow these automatically."
-        fields:
-          - { name: accent, label: Accent, type: string, description: "Solid buttons, the Next show banner, selected tabs and releases. Original #603cba (other ideas: #8b1e3f, #2f6b4f, #9a4a12)", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #603cba" } }
-          - { name: accent_text, label: Text on accent, type: string, description: "Text on accent buttons and the banner. Original #ffffff", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #ffffff" } }
-          - { name: background, label: Page background, type: string, description: "Original #0e0c10", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #0e0c10" } }
-          - { name: panel, label: Panel background, type: string, description: "Release panels and photo placeholders. Original #16121a", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #16121a" } }
-          - { name: text, label: Main text, type: string, description: "Links, headings and tab labels. Original #ece4d6", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #ece4d6" } }
-          - { name: text_secondary, label: Secondary text, type: string, description: "Intro, summaries, show details and bio. Original #c8c0cf", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #c8c0cf" } }
-          - { name: text_muted, label: Muted text, type: string, description: "Small labels, dates, credits and track numbers. Original #a79fb0", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #a79fb0" } }
-          - { name: link_hover, label: Link hover, type: string, description: "Links on hover and the keyboard focus outline. Original #c9b8ff", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #c9b8ff" } }
-      - name: use_default_colours
-        label: Use the original colours
-        type: boolean
-        description: "Turn on to put every colour back to the original look. Your colours above are kept, so turning it off brings them back."
-      - name: display_font
-        label: Heading font
-        type: select
-        description: "Used for the band name, section titles and release titles. Preview them at fonts.google.com"
-        options: { values: ["Pirata One", "UnifrakturMaguntia", "Metal Mania", "New Rocker", "Creepster", "Special Elite", "Bebas Neue", "Anton"] }
-      - name: bandcamp_player
-        label: Bandcamp player colours
-        type: object
-        description: "Colours for the Bandcamp players on release pages. Bandcamp only offers these background options, and it sets the plain text colour itself to suit."
-        fields:
-          - name: background
-            label: Background
-            type: select
-            description: "Blend with page shows the player straight on the dark release panel"
-            options: { values: ["Blend with page", "Dark", "Light"] }
-          - name: link
-            label: Title and link colour
-            type: string
-            description: "The release title, band name and playing track. Default #b49cff"
-            pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #b49cff" }
       - { name: bio, label: Bio paragraphs, type: text, list: true }
       - name: lineup
         label: Lineup
@@ -194,6 +157,50 @@ content:
           - { name: button_text, label: Button text, type: string, description: "Shown below the cards, e.g. View all our merch" }
           - { name: button_link, label: Button link, type: string, description: "e.g. your Bandcamp merch page. The button only appears when both are filled in" }
       - { name: land_acknowledgement, label: Land acknowledgement (footer), type: text }
+
+  - name: style
+    label: Site Style
+    type: file
+    path: src/data/style.json
+    format: json
+    fields:
+      - name: colours
+        label: Site colours
+        type: object
+        description: "Colour codes like #603cba (pick one at https://htmlcolorcodes.com). Leave a colour blank to use its original. Other shades, like divider lines and the footer, follow these automatically."
+        fields:
+          - { name: accent, label: Accent, type: string, description: "Solid buttons, the Next show banner, selected tabs and releases. Original #603cba (other ideas: #8b1e3f, #2f6b4f, #9a4a12)", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #603cba" } }
+          - { name: accent_text, label: Text on accent, type: string, description: "Text on accent buttons and the banner. Original #ffffff", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #ffffff" } }
+          - { name: background, label: Page background, type: string, description: "Original #0e0c10", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #0e0c10" } }
+          - { name: panel, label: Panel background, type: string, description: "Release panels and photo placeholders. Original #16121a", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #16121a" } }
+          - { name: text, label: Main text, type: string, description: "Links, headings and tab labels. Original #ece4d6", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #ece4d6" } }
+          - { name: text_secondary, label: Secondary text, type: string, description: "Intro, summaries, show details and bio. Original #c8c0cf", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #c8c0cf" } }
+          - { name: text_muted, label: Muted text, type: string, description: "Small labels, dates, credits and track numbers. Original #a79fb0", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #a79fb0" } }
+          - { name: link_hover, label: Link hover, type: string, description: "Links on hover and the keyboard focus outline. Original #c9b8ff", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #c9b8ff" } }
+      - name: use_default_colours
+        label: Use the original colours
+        type: boolean
+        description: "Turn on to put every colour back to the original look. Your colours above are kept, so turning it off brings them back."
+      - name: display_font
+        label: Heading font
+        type: select
+        description: "Used for the band name, section titles and release titles. Preview them at fonts.google.com"
+        options: { values: ["Pirata One", "UnifrakturMaguntia", "Metal Mania", "New Rocker", "Creepster", "Special Elite", "Bebas Neue", "Anton"] }
+      - name: bandcamp_player
+        label: Bandcamp player colours
+        type: object
+        description: "Colours for the Bandcamp players on release pages. Bandcamp only offers these background options, and it sets the plain text colour itself to suit."
+        fields:
+          - name: background
+            label: Background
+            type: select
+            description: "Blend with page shows the player straight on the dark release panel"
+            options: { values: ["Blend with page", "Dark", "Light"] }
+          - name: link
+            label: Title and link colour
+            type: string
+            description: "The release title, band name and playing track. Default #b49cff"
+            pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #b49cff" }
 
   # Shows EDITING.md in the sidebar so editors can read the guide and find who to contact.
   - name: help

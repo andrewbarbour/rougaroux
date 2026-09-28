@@ -19,6 +19,7 @@ import '@fontsource/space-mono/latin-400.css';
 import '@fontsource/space-mono/latin-700.css';
 import '../styles/global.css';
 import site from '../data/site.json';
+import style from '../data/style.json';
 import { displayFont } from '../lib/fonts';
 import { coloursFromSettings, coloursCss } from '../lib/colours';
 import { hasMerch } from '../lib/merch';
@@ -31,8 +32,8 @@ const ogImage = image ? new URL(image, Astro.site).href : undefined;
 // Pages CMS drops empty fields on save, so any menu label may be missing.
 const menu: Partial<Record<'music' | 'shows' | 'merch' | 'about' | 'contact' | 'button_text' | 'button_link', string>> = site.menu ?? {};
 const showMerch = await hasMerch();
-const font = displayFont((site as { display_font?: string }).display_font);
-const colours = coloursFromSettings(site);
+const font = displayFont((style as { display_font?: string }).display_font);
+const colours = coloursFromSettings(style);
 const home = Astro.url.pathname === '/' ? '' : '/';
 ---
 <!doctype html>

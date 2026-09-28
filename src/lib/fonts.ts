@@ -1,4 +1,4 @@
-// Heading fonts selectable in Site settings. Every face is imported in Base.astro, but browsers
+// Heading fonts selectable in Site Style. Every face is imported in Base.astro, but browsers
 // only download the one the page actually uses. `scale` evens out how wide each font sets, so a
 // swap doesn't push the hero title off the screen; it's relative to Pirata One.
 // Keep the names in sync with the display_font options in .pages.yml.
