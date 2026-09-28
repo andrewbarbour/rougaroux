@@ -167,7 +167,7 @@ p { margin: 0; }
 .tracklist li::before { content: counter(t, decimal-leading-zero); font-family: var(--mono); font-size: 13px; color: var(--ink-muted); padding-top: 2px; }
 
 .bc-player { width: 100%; border: 0; border-radius: 6px; background: var(--bg); }
-.release-cta { display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 14px 18px; border: 1px solid var(--rule-strong); border-radius: 6px; background: var(--bg); text-decoration: none; font-weight: 700; }
+.release-cta { display: flex; align-self: flex-start; max-width: 100%; align-items: center; gap: 14px; min-height: 64px; padding: 14px 18px; border: 1px solid var(--rule-strong); border-radius: 6px; background: var(--bg); text-decoration: none; font-weight: 700; }
 /* Merch */
 .merch-intro { font-size: clamp(17px, 1.5vw, 20px); color: var(--ink-soft); max-width: 40em; margin-bottom: 32px; }
 .merch-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
