@@ -81,11 +81,14 @@ Use square images, around 1200 × 1200 px and under 1 MB.
 How covers display (`src/components/Cover.astro`, styled in the "Covers" block of
 `src/styles/global.css`):
 
-- With artwork, the image sits under a semi-transparent overlay in the release's `tint` colour, with
-  the title on top. Hovering over the cover, or tabbing onto the release card with the keyboard,
+- The tint is `--tint` in `global.css`: a dark shade of the Site Style accent, so covers follow the
+  accent. A release's optional `tint` field overrides it for that release. Merch cards use the same
+  covers and always follow the accent.
+- With artwork, the image sits under a semi-transparent overlay in the tint colour, with the title
+  on top. Hovering over the cover, or tabbing onto the release or merch card with the keyboard,
   fades the overlay and title out to reveal the artwork. To change how much of the art shows through
   at rest, adjust the `72%` in the `.cover__overlay` rule.
-- Without artwork (`cover` left empty), the cover is a solid block of the `tint` colour with the
+- Without artwork (`cover` left empty), the cover is a solid block of the tint colour with the
   title, and hovering does nothing.
 - On touch screens there's no hover, so the title stays visible. Visitors with reduced motion
   turned on get the change without the fade.

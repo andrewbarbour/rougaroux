@@ -8,7 +8,6 @@ bandcamp_url: https://rougaroux.bandcamp.com/track/mean-well
 bandcamp_id: ""
 bandcamp_kind: track
 spotify_url: ""
-tint: "#1d2b26"
 tracks:
   - Mean Well
 ---

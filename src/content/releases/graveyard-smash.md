@@ -19,7 +19,6 @@ tracks:
   - t4t
   - Bela Lugosi Lives Again!
   - Eschew The Meat
-tint: "#2a1d3f"
 ---
 Panic Room, Fever Dream, Wasted, If I Go Down To One, It's All Over, and Eschew the Meat were recorded, mixed and mastered by **Riley Valentine** at Choms Studio. 
 

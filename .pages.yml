@@ -76,7 +76,7 @@ content:
           - { name: text, label: Button text, type: string, description: "e.g. Pre-order the LP" }
           - { name: url, label: Button link, type: string }
       - { name: tracks, label: Tracklist, type: string, list: true }
-      - { name: tint, label: Placeholder colour (used until cover art is added), type: string }
+      - { name: tint, label: Cover tint (optional), type: string, description: "Leave blank to use a dark shade of the accent colour from Site Style. Only fill in to give this release its own colour, e.g. #3a1420", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #3a1420" } }
       - { name: body, label: Credits and notes, type: text }
 
   - name: merch

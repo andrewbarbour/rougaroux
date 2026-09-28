@@ -8,7 +8,6 @@ bandcamp_url: https://rougaroux.bandcamp.com/album/go-for-the-face
 bandcamp_id: ""
 bandcamp_kind: album
 spotify_url: ""
-tint: "#33291a"
 tracks:
   - Puce
   - Panic Room

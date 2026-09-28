@@ -8,7 +8,6 @@ bandcamp_url: https://rougaroux.bandcamp.com/album/bela-lugosi-lives-again
 bandcamp_id: ""
 bandcamp_kind: album
 spotify_url: ""
-tint: "#3a1420"
 tracks:
   - Bela Lugosi Lives Again!
   - t4t

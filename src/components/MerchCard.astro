@@ -8,7 +8,7 @@ const m = Astro.props.item.data;
 const Tag = m.link ? 'a' : 'div';
 ---
 <Tag class="merch-card" href={m.link || undefined}>
-  <Cover title={m.name} cover={m.photo} tint="#2a1d3f" />
+  <Cover title={m.name} cover={m.photo} />
   <span class="merch-card__name">{m.name}</span>
   {m.details.length > 0 && (
     <ul class="merch-card__details" role="list">

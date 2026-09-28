@@ -8,6 +8,9 @@
   --rule: color-mix(in srgb, var(--ink-muted) 16%, var(--bg));
   --rule-strong: color-mix(in srgb, var(--ink-muted) 50%, var(--bg));
 
+  /* Cover tint for release and merch covers: a dark shade of the accent so the light title stays
+     readable. A release's own Placeholder colour overrides it via an inline --tint. */
+  --tint: color-mix(in srgb, var(--accent) 34%, var(--bg));
   /* --display and --display-scale are set in the layout too, from style.json's display_font
      (see src/lib/fonts.ts) */
   --body: 'Archivo', 'Noto Sans', system-ui, sans-serif;
@@ -139,6 +142,8 @@ p { margin: 0; }
 
 .release-card:hover .cover--has-image .cover__overlay,
 .release-card:focus-visible .cover--has-image .cover__overlay,
+.merch-card:hover .cover--has-image .cover__overlay,
+.merch-card:focus-visible .cover--has-image .cover__overlay,
 .cover--large.cover--has-image:hover .cover__overlay { opacity: 0; }
 
 /* Touch screens have no hover, so the title stays visible; a tap selects the release as before. */
@@ -166,8 +171,6 @@ p { margin: 0; }
 @media (max-width: 1000px) { .merch-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } }
 .merch-card { display: flex; flex-direction: column; gap: 6px; padding: 10px 10px 14px; border: 2px solid var(--rule); border-radius: 6px; text-decoration: none; height: 100%; }
 a.merch-card:hover { color: var(--ink); border-color: var(--rule-strong); }
-/* The name is printed under the photo, so only placeholders (no photo) show it on the tile. */
-.merch-card .cover--has-image .cover__overlay { display: none; }
 .merch-card__name { font-size: 19px; font-weight: 700; line-height: 1.25; }
 .merch-card__details { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; font-size: 15px; color: var(--ink-muted); }
 .merch-more { margin-top: 40px; }

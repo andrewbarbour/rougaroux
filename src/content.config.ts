@@ -42,7 +42,12 @@ const releases = defineCollection({
       .object({ icon: z.string().optional(), text: z.string().optional(), url: z.string().optional() })
       .nullish(),
     tracks: z.array(z.string()).optional().default([]),
-    tint: z.string().optional().default('#2a1d3f'),
+    // Optional override; blank means the cover follows the accent colour.
+    tint: z
+      .string()
+      .nullish()
+      .transform((v) => (v ?? '').trim())
+      .transform((v) => (/^[0-9a-f]{6}$/i.test(v) ? `#${v}` : v)),
   }),
 });
 
