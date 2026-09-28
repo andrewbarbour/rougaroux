@@ -1,14 +1,12 @@
 ---
-title: Graveyard Smash - BC album embed
-type: LP
+title: Graveyard Smash - album embed
 date: 2025-04-11
-summary: The debut full-length, four years in the making.
+type: LP
 cover: /images/graveyard-smash.jpg
+summary: The debut full-length, four years in the making.
 bandcamp_embed:
   type: album
   id: "4013658360"
-bandcamp_url: https://rougaroux.bandcamp.com/album/graveyard-smash
-spotify_url: https://open.spotify.com/artist/5z3S44N4AUJQaAutk2IdGq
 tracks:
   - Mean Well
   - Panic Room
@@ -20,6 +18,8 @@ tracks:
   - t4t
   - Bela Lugosi Lives Again!
   - Eschew The Meat
+bandcamp_url: https://rougaroux.bandcamp.com/album/graveyard-smash
+spotify_url: https://open.spotify.com/artist/5z3S44N4AUJQaAutk2IdGq
 ---
 Panic Room, Fever Dream, Wasted, If I Go Down To One, It's All Over, and Eschew the Meat were recorded, mixed and mastered by **Riley Valentine** at Choms Studio. 
 
