@@ -143,8 +143,11 @@ p { margin: 0; }
 .release-card:hover .cover--has-image .cover__overlay,
 .release-card:focus-visible .cover--has-image .cover__overlay,
 .merch-card:hover .cover--has-image .cover__overlay,
-.merch-card:focus-visible .cover--has-image .cover__overlay,
-.cover--large.cover--has-image:hover .cover__overlay { opacity: 0; }
+.merch-card:focus-visible .cover--has-image .cover__overlay { opacity: 0; }
+
+/* The release detail view shows its artwork plain; the title is right beside it. Without artwork
+   the placeholder keeps its title. */
+.cover--large.cover--has-image .cover__overlay { display: none; }
 
 /* Touch screens have no hover, so the title stays visible; a tap selects the release as before. */
 @media (prefers-reduced-motion: reduce) { .cover__overlay { transition: none; } }

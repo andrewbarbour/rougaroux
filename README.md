@@ -88,6 +88,8 @@ How covers display (`src/components/Cover.astro`, styled in the "Covers" block o
   on top. Hovering over the cover, or tabbing onto the release or merch card with the keyboard,
   fades the overlay and title out to reveal the artwork. To change how much of the art shows through
   at rest, adjust the `72%` in the `.cover__overlay` rule.
+- The large cover in a release's detail view (`cover--large`) shows its artwork with no overlay or
+  title, since the title sits right beside it.
 - Without artwork (`cover` left empty), the cover is a solid block of the tint colour with the
   title, and hovering does nothing.
 - On touch screens there's no hover, so the title stays visible. Visitors with reduced motion

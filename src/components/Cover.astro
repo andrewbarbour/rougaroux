@@ -10,7 +10,7 @@ const { title, cover = '', tint = '', size = 'card' } = Astro.props;
   aria-label={cover ? undefined : `${title} cover art`}
 >
   {cover && (
-    <img class="cover__img" src={cover} alt={`${title} cover art`} loading="lazy" decoding="async" width="600" height="600" />
+    <img class="cover__img" src={cover} alt={`${title} cover art`} loading={size === 'large' ? 'eager' : 'lazy'} decoding="async" width="600" height="600" />
   )}
   <span class="cover__overlay" aria-hidden="true">
     <span class="cover__title">{title}</span>
