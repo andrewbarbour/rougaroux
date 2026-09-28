@@ -20,6 +20,7 @@ npm run preview   # serves dist/
 | --- | --- |
 | Shows (one file per show) | `src/content/shows/*.yaml` |
 | Releases (one file per release; body = credits) | `src/content/releases/*.md` |
+| Merch items (one file per item) | `src/content/merch/*.yaml` |
 | Bio, lineup, press quotes, links, email, site colours | `src/data/site.json` |
 | Colour defaults and CSS variable mapping | `src/lib/colours.ts` |
 | Uploaded images, including release artwork | `public/images/` |
@@ -28,7 +29,8 @@ npm run preview   # serves dist/
 | Page templates | `src/pages/`, `src/layouts/`, `src/components/` |
 | Styles and design tokens | `src/styles/global.css` |
 
-Pages built: `/` (single page with Music, Shows, About, Contact), `/music/<slug>/` for each
+Pages built: `/` (single page with Music, Shows, Merch, About, Contact; Merch and its menu link
+only appear once there's a merch item or a Merch section button), `/music/<slug>/` for each
 release (shareable links; the release cards on the home page link here and swap in place when
 JavaScript is on), and `404.html`.
 

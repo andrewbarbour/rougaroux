@@ -44,6 +44,21 @@ The button only appears once the show is in the Past tab, so you can add the lin
 7. Put credits and thanks in **Credits and notes**. Leave a blank line between paragraphs.
 8. Save. The newest release automatically becomes the one featured at the top of Music.
 
+## Add merch
+
+1. Open **Merch** and choose **Add an entry**.
+2. Fill in the **Item name**.
+3. Add a few **Details**, one short line per row, e.g. "Black cotton tee", "Sizes S–XXL", "$25".
+4. Paste the **Link** to the page where people can buy it or see more.
+5. Optional: upload a square **Photo**. Without one, the card shows the item name on a coloured tile.
+6. Optional: set a **Position** to control the order. Lower numbers show first; items without one
+   go last, in A–Z order.
+7. Save.
+
+The Merch section and its menu link appear as soon as there's at least one item. The intro text
+and the button under the cards (e.g. "View all our merch") are in **Site settings → Merch section**.
+To take an item down, delete its entry.
+
 ## Change the bio, lineup, links or press quotes
 
 Open **Site settings**. Everything on the page that isn't a show or a release lives here,

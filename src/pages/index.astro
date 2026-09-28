@@ -4,6 +4,8 @@ import Base from '../layouts/Base.astro';
 import Cover from '../components/Cover.astro';
 import ReleasePanel from '../components/ReleasePanel.astro';
 import ShowRow from '../components/ShowRow.astro';
+import MerchCard from '../components/MerchCard.astro';
+import { getMerch, hasMerch, merchSettings } from '../lib/merch';
 import site from '../data/site.json';
 import { dateParts, isoDay, splitShows } from '../lib/dates';
 
@@ -12,6 +14,8 @@ const { upcoming, past } = splitShows(await getCollection('shows'));
 const latest = releases[0];
 const next = upcoming[0];
 const nextParts = next ? dateParts(next.data.date) : null;
+const merch = await getMerch();
+const showMerch = await hasMerch();
 const years = releases.map((r) => r.data.date.getUTCFullYear());
 const span = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : '';
 const links = [
@@ -98,6 +102,23 @@ const links = [
       </div>
     </div>
   </section>
+
+  {showMerch && (
+    <section id="merch" class="section wrap" aria-labelledby="merch-h">
+      <div class="section__head">
+        <h2 id="merch-h">{(site.menu as { merch?: string } | undefined)?.merch || 'Merch'}</h2>
+      </div>
+      {merchSettings.intro && <p class="merch-intro">{merchSettings.intro}</p>}
+      {merch.length > 0 && (
+        <ul class="merch-grid" role="list">
+          {merch.map((m) => <li><MerchCard item={m} /></li>)}
+        </ul>
+      )}
+      {merchSettings.button_text && merchSettings.button_link && (
+        <p class="merch-more"><a class="btn btn--solid btn--lg" href={merchSettings.button_link}>{merchSettings.button_text}</a></p>
+      )}
+    </section>
+  )}
 
   <section id="about" class="section wrap about" aria-labelledby="about-h">
     <div class="about__bio">

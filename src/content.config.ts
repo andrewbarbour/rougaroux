@@ -46,4 +46,17 @@ const releases = defineCollection({
   }),
 });
 
-export const collections = { shows, releases };
+// One YAML file per merch item in src/content/merch/. Shown as cards in the Merch section, sorted by
+// `order` (lowest first), then name.
+const merch = defineCollection({
+  loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/merch' }),
+  schema: z.object({
+    name: z.string(),
+    photo: z.string().nullish().transform((v) => v ?? ''),
+    details: z.array(z.string()).nullish().transform((v) => v ?? []),
+    link: z.string().nullish().transform((v) => v ?? ''),
+    order: z.number().nullish(),
+  }),
+});
+
+export const collections = { shows, releases, merch };

@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Cover from './Cover.astro';
+
+interface Props { item: CollectionEntry<'merch'> }
+const m = Astro.props.item.data;
+// The whole card is the link when there is one; the layout script opens it in a new tab.
+const Tag = m.link ? 'a' : 'div';
+---
+<Tag class="merch-card" href={m.link || undefined}>
+  <Cover title={m.name} cover={m.photo} tint="#2a1d3f" />
+  <span class="merch-card__name">{m.name}</span>
+  {m.details.length > 0 && (
+    <ul class="merch-card__details" role="list">
+      {m.details.map((d) => <li>{d}</li>)}
+    </ul>
+  )}
+</Tag>

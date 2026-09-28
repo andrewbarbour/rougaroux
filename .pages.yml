@@ -79,6 +79,25 @@ content:
       - { name: tint, label: Placeholder colour (used until cover art is added), type: string }
       - { name: body, label: Credits and notes, type: text }
 
+  - name: merch
+    label: Merch
+    type: collection
+    path: src/content/merch
+    format: yaml
+    filename: "{primary}.yaml"
+    view:
+      fields: [name, order]
+      primary: name
+      default:
+        sort: order
+        order: asc
+    fields:
+      - { name: name, label: Item name, type: string, required: true, description: "e.g. Graveyard Smash tee" }
+      - { name: photo, label: Photo, type: image, description: "Square works best, about 1200×1200 px, under 1 MB. Without one, the card shows the item name on a coloured tile" }
+      - { name: details, label: Details, type: string, list: true, description: "One short line per row, e.g. Black cotton tee / Sizes S–XXL / $25" }
+      - { name: link, label: Link, type: string, description: "The page where people can buy or see it" }
+      - { name: order, label: Position, type: number, description: "Optional. Lower numbers show first; items without one go last, A to Z" }
+
   - name: site
     label: Site settings
     type: file
@@ -161,10 +180,19 @@ content:
         fields:
           - { name: music, label: Music link text, type: string }
           - { name: shows, label: Shows link text, type: string }
+          - { name: merch, label: Merch link text, type: string, description: "Also used as the Merch section's title" }
           - { name: about, label: About link text, type: string }
           - { name: contact, label: Contact link text, type: string }
           - { name: button_text, label: Button text, type: string, description: "e.g. Listen on Bandcamp" }
           - { name: button_link, label: Button link, type: string, description: "Leave blank to use the Bandcamp link above" }
+      - name: merch
+        label: Merch section
+        type: object
+        description: "The Merch section and its menu link appear once there's at least one merch item or a button below."
+        fields:
+          - { name: intro, label: Intro text, type: text, description: "A line or two above the merch cards" }
+          - { name: button_text, label: Button text, type: string, description: "Shown below the cards, e.g. View all our merch" }
+          - { name: button_link, label: Button link, type: string, description: "e.g. your Bandcamp merch page. The button only appears when both are filled in" }
       - { name: land_acknowledgement, label: Land acknowledgement (footer), type: text }
 
   # Shows EDITING.md in the sidebar so editors can read the guide and find who to contact.
