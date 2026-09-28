@@ -37,6 +37,10 @@ const releases = defineCollection({
     // Blank (a select left untouched in Pages CMS) means none.
     bandcamp_kind: z.preprocess((v) => (v === '' || v === null ? undefined : v), z.enum(['none', 'album', 'track']).default('none')),
     spotify_url: z.string().optional().default(''),
+    // Call to action button; Pages CMS drops empty fields, so each part may be missing.
+    cta: z
+      .object({ icon: z.string().optional(), text: z.string().optional(), url: z.string().optional() })
+      .nullish(),
     tracks: z.array(z.string()).optional().default([]),
     tint: z.string().optional().default('#2a1d3f'),
   }),

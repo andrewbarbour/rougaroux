@@ -2,6 +2,7 @@
 import { render, type CollectionEntry } from 'astro:content';
 import Cover from './Cover.astro';
 import BandcampPlayer from './BandcampPlayer.astro';
+import CtaButton from './CtaButton.astro';
 import { dateParts } from '../lib/dates';
 
 interface Props { release: CollectionEntry<'releases'>; hidden?: boolean; headingLevel?: 'h1' | 'h3' }
@@ -17,7 +18,8 @@ const typeLabel = r.type === '2-track' ? 'Two-track release' : r.type;
     <p class="meta">{typeLabel}, released {dateParts(r.date).long}</p>
     <Heading class="release-panel__title">{r.title}</Heading>
     {r.summary && <p class="release-panel__summary">{r.summary}</p>}
-    <BandcampPlayer title={r.title} id={r.bandcamp_id} kind={r.bandcamp_kind} url={r.bandcamp_url} tracks={r.tracks.length} />
+    <BandcampPlayer title={r.title} id={r.bandcamp_id} kind={r.bandcamp_kind} tracks={r.tracks.length} />
+    <CtaButton icon={r.cta?.icon} text={r.cta?.text} url={r.cta?.url} />
     {r.tracks.length > 0 && (
       <ol class="tracklist">
         {r.tracks.map((t) => <li>{t}</li>)}

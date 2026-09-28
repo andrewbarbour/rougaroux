@@ -59,11 +59,22 @@ content:
         label: Bandcamp embed type
         type: select
         default: none
-        description: "none (or blank) skips the player and just shows a link to Bandcamp"
+        description: "none (or blank) shows no player"
         options: { values: [none, album, track], placeholder: none }
       - { name: bandcamp_id, label: Bandcamp embed ID, type: string, description: "The number after album= or track= in Bandcamp's Share/Embed code" }
       - { name: bandcamp_url, label: Bandcamp link, type: string }
       - { name: spotify_url, label: Spotify link, type: string }
+      - name: cta
+        label: Call to action button
+        type: object
+        description: "Optional button under the summary. It only appears when both the text and link are filled in."
+        fields:
+          - name: icon
+            label: Icon
+            type: select
+            options: { values: [none, Play, Headphones, Video, Cart, Ticket, Download, Link] }
+          - { name: text, label: Button text, type: string, description: "e.g. Pre-order the LP" }
+          - { name: url, label: Button link, type: string }
       - { name: tracks, label: Tracklist, type: string, list: true }
       - { name: tint, label: Placeholder colour (used until cover art is added), type: string }
       - { name: body, label: Credits and notes, type: text }

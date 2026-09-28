@@ -35,11 +35,14 @@ The button only appears once the show is in the Past tab, so you can add the lin
 3. Add each song as a row in **Tracklist**, in order.
 4. Upload square cover art (about 1200 × 1200 px).
 5. Optional: add a playable Bandcamp player. Set **Bandcamp embed type** to `album` or `track`
-   (leave it on `none` for just a link), then fill in **Bandcamp embed ID**: on Bandcamp, open the
+   (leave it on `none` for no player), then fill in **Bandcamp embed ID**: on Bandcamp, open the
    release, choose **Share / Embed → Embed this album**, and copy the number after `album=`
    (or `track=` for a single track).
-6. Put credits and thanks in **Credits and notes**. Leave a blank line between paragraphs.
-7. Save. The newest release automatically becomes the one featured at the top of Music.
+6. Optional: add a **Call to action button** under the summary, e.g. "Pre-order the LP" or
+   "Watch the video". Pick an icon (or none), type the button text and paste the link. The button
+   only appears when both the text and the link are filled in.
+7. Put credits and thanks in **Credits and notes**. Leave a blank line between paragraphs.
+8. Save. The newest release automatically becomes the one featured at the top of Music.
 
 ## Change the bio, lineup, links or press quotes
 
