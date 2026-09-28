@@ -22,14 +22,14 @@ content:
       - { name: city, label: City, type: string, required: true, description: "e.g. Montréal, QC" }
       - { name: venue, label: Venue, type: string }
       - { name: address, label: Address, type: string }
+      - { name: with, label: Playing with, type: string, list: true, description: "One band per row" }
       - { name: doors, label: Doors, type: string, description: "e.g. 7:00 PM" }
       - { name: show_time, label: Show time, type: string }
       - { name: price, label: Price, type: string, description: "e.g. $15 / PWYC" }
       - { name: ages, label: Ages, type: string, description: "e.g. 19+ or All ages" }
-      - { name: with, label: Playing with, type: string, list: true, description: "One band per row" }
-      - { name: link, label: Tickets or event link, type: string }
       - { name: accessibility, label: Accessibility notes, type: text, description: "Step-free entry, washrooms, seating, masking policy" }
       - { name: notes, label: Other notes, type: text }
+      - { name: link, label: Tickets or event link, type: string }
       - { name: post_event_link_text, label: After-show button text, type: string, description: "Shown on past shows only, e.g. Watch the set or See photos" }
       - { name: post_event_link, label: After-show link, type: string, description: "Video, photos or recap. The button appears once the show is in Past" }
 
@@ -46,15 +46,16 @@ content:
         sort: date
         order: desc
     fields:
-      - { name: title, label: Title, type: string, required: true }
+      - { name: cover, label: Cover art, type: image, description: "Square, about 1200×1200 px, under 1 MB" }
+      - { name: tint, label: Cover tint (optional), type: string, description: "Leave blank to use a dark shade of the accent colour from Site Style. Only fill in to give this release its own colour, e.g. #3a1420", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #3a1420" } }
       - name: type
         label: Type
         type: select
         required: true
         options: { values: [LP, EP, Single, 2-track] }
       - { name: date, label: Release date, type: date, required: true, options: { format: yyyy-MM-dd } }
+      - { name: title, label: Title, type: string, required: true }
       - { name: summary, label: Text Block 1, type: text, description: "Shown under the title, above the player. Leave a blank line between paragraphs. The first paragraph is also used as the page description in search results and link previews" }
-      - { name: cover, label: Cover art, type: image, description: "Square, about 1200×1200 px, under 1 MB" }
       - name: bandcamp_kind
         label: Bandcamp embed type
         type: select
@@ -62,8 +63,9 @@ content:
         description: "none (or blank) shows no player"
         options: { values: [none, album, track], placeholder: none }
       - { name: bandcamp_id, label: Bandcamp embed ID, type: string, description: "The number after album= or track= in Bandcamp's Share/Embed code" }
-      - { name: bandcamp_url, label: Bandcamp link, type: string }
-      - { name: spotify_url, label: Spotify link, type: string }
+      - { name: tracks, label: Tracklist, type: string, list: true }
+      - { name: body, label: Credits and notes, type: text }
+      - { name: text_block_2, label: Text Block 2, type: text, description: "Shown after the credits and notes, above the button. Leave a blank line between paragraphs" }
       - name: cta
         label: Call to action button
         type: object
@@ -75,10 +77,8 @@ content:
             options: { values: [none, Play, Headphones, Video, Cart, Ticket, Download, Link] }
           - { name: text, label: Button text, type: string, description: "e.g. Pre-order the LP" }
           - { name: url, label: Button link, type: string }
-      - { name: tracks, label: Tracklist, type: string, list: true }
-      - { name: tint, label: Cover tint (optional), type: string, description: "Leave blank to use a dark shade of the accent colour from Site Style. Only fill in to give this release its own colour, e.g. #3a1420", pattern: { regex: "^(#?[0-9a-fA-F]{6})?$", message: "Use a colour code like #3a1420" } }
-      - { name: body, label: Credits and notes, type: text }
-      - { name: text_block_2, label: Text Block 2, type: text, description: "Shown after the credits and notes, above the button. Leave a blank line between paragraphs" }
+      - { name: bandcamp_url, label: Bandcamp link, type: string }
+      - { name: spotify_url, label: Spotify link, type: string }
 
   - name: merch
     label: Merch
@@ -93,8 +93,8 @@ content:
         sort: order
         order: asc
     fields:
-      - { name: name, label: Item name, type: string, required: true, description: "e.g. Graveyard Smash tee" }
       - { name: photo, label: Photo, type: image, description: "Square works best, about 1200×1200 px, under 1 MB. Without one, the card shows the item name on a coloured tile" }
+      - { name: name, label: Item name, type: string, required: true, description: "e.g. Graveyard Smash tee" }
       - { name: details, label: Details, type: string, list: true, description: "One short line per row, e.g. Black cotton tee / Sizes S–XXL / $25" }
       - { name: link, label: Link, type: string, description: "The page where people can buy or see it" }
       - { name: order, label: Position, type: number, description: "Optional. Lower numbers show first; items without one go last, A to Z" }
@@ -106,10 +106,30 @@ content:
     format: json
     fields:
       - { name: name, label: Band name, type: string }
+      - name: menu
+        label: Top menu
+        type: object
+        description: "Labels for the menu at the top of every page. Leave one blank to use the default."
+        fields:
+          - { name: music, label: Music link text, type: string }
+          - { name: shows, label: Shows link text, type: string }
+          - { name: merch, label: Merch link text, type: string, description: "Also used as the Merch section's title" }
+          - { name: about, label: About link text, type: string }
+          - { name: contact, label: Contact link text, type: string }
+          - { name: button_text, label: Button text, type: string, description: "e.g. Listen on Bandcamp" }
+          - { name: button_link, label: Button link, type: string, description: "Leave blank to use the Bandcamp link under Links, further down" }
+      - { name: location, label: Location line, type: string }
       - { name: tagline, label: Tagline, type: string }
       - { name: intro, label: Intro line, type: string }
-      - { name: location, label: Location line, type: string }
       - { name: hero_image, label: Hero photo, type: image, description: "Landscape or portrait, about 1600 px wide, under 1 MB" }
+      - name: merch
+        label: Merch section
+        type: object
+        description: "The Merch section and its menu link appear once there's at least one merch item or a button below."
+        fields:
+          - { name: intro, label: Intro text, type: text, description: "A line or two above the merch cards" }
+          - { name: button_text, label: Button text, type: string, description: "Shown below the cards, e.g. View all our merch" }
+          - { name: button_link, label: Button link, type: string, description: "e.g. your Bandcamp merch page. The button only appears when both are filled in" }
       - { name: bio, label: Bio paragraphs, type: text, list: true }
       - name: lineup
         label: Lineup
@@ -137,26 +157,6 @@ content:
           - { name: spotify, label: Spotify, type: string }
           - { name: instagram, label: Instagram, type: string }
           - { name: facebook, label: Facebook, type: string }
-      - name: menu
-        label: Top menu
-        type: object
-        description: "Labels for the menu at the top of every page. Leave one blank to use the default."
-        fields:
-          - { name: music, label: Music link text, type: string }
-          - { name: shows, label: Shows link text, type: string }
-          - { name: merch, label: Merch link text, type: string, description: "Also used as the Merch section's title" }
-          - { name: about, label: About link text, type: string }
-          - { name: contact, label: Contact link text, type: string }
-          - { name: button_text, label: Button text, type: string, description: "e.g. Listen on Bandcamp" }
-          - { name: button_link, label: Button link, type: string, description: "Leave blank to use the Bandcamp link above" }
-      - name: merch
-        label: Merch section
-        type: object
-        description: "The Merch section and its menu link appear once there's at least one merch item or a button below."
-        fields:
-          - { name: intro, label: Intro text, type: text, description: "A line or two above the merch cards" }
-          - { name: button_text, label: Button text, type: string, description: "Shown below the cards, e.g. View all our merch" }
-          - { name: button_link, label: Button link, type: string, description: "e.g. your Bandcamp merch page. The button only appears when both are filled in" }
       - { name: land_acknowledgement, label: Land acknowledgement (footer), type: text }
 
   - name: style
