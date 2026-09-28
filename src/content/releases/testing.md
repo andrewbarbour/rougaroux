@@ -12,4 +12,9 @@ cta:
   icon: Ticket
   text: Get your tickets now!
   url: https://www.youtube.com/
+tracks:
+  - Track A
+  - Track B
+  - Track C
 ---
+These are the credits and notes
