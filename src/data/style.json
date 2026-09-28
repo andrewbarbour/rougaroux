@@ -9,7 +9,7 @@
     "text_muted": "#a79fb0",
     "link_hover": "#c9b8ff"
   },
-  "use_default_colours": true,
+  "use_default_colours": false,
   "display_font": "Pirata One",
   "bandcamp_player": {
     "background": "Blend with page",
