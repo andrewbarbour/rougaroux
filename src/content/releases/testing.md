@@ -1,5 +1,5 @@
 ---
-title: Pagan
+title: "*test release*"
 date: 2026-09-25
 type: Single
 cover: /images/Screenshot 2026-09-25 090245.png
