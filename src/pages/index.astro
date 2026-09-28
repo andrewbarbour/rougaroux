@@ -127,7 +127,7 @@ const links = [
   <section id="contact" class="section wrap contact" aria-labelledby="contact-h">
     <div>
       <h2 id="contact-h" class="eyebrow">Booking, press and everything else</h2>
-      <a class="contact__email" href={`mailto:${site.email}`}>{site.email}</a>
+      <a class="contact__email" href={`mailto:${site.email}`} style={`--chars:${site.email.length}`}>{site.email}</a>
       {site.epk_url && <p><a class="strong" href={site.epk_url}>Download the press kit</a></p>}
     </div>
     <nav class="elsewhere" aria-label="Elsewhere">
