@@ -20,7 +20,8 @@ npm run preview   # serves dist/
 | --- | --- |
 | Shows (one file per show) | `src/content/shows/*.yaml` |
 | Releases (one file per release; body = credits) | `src/content/releases/*.md` |
-| Bio, lineup, press quotes, links, email, accent colour | `src/data/site.json` |
+| Bio, lineup, press quotes, links, email, site colours | `src/data/site.json` |
+| Colour defaults and CSS variable mapping | `src/lib/colours.ts` |
 | Uploaded images, including release artwork | `public/images/` |
 | Content schema (validates every build) | `src/content.config.ts` |
 | CMS form definitions | `.pages.yml` |

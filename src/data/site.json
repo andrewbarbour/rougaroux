@@ -4,7 +4,17 @@
   "intro": "Like all the cryptids, because you believe in us, we exist.",
   "location": "Vancouver, BC · Unceded Coast Salish territories",
   "hero_image": "/images/a2427715610_10.jpg",
-  "accent": "#603cba",
+  "colours": {
+    "accent": "#603cba",
+    "accent_text": "#ffffff",
+    "background": "#0e0c10",
+    "panel": "#16121a",
+    "text": "#ece4d6",
+    "text_secondary": "#c8c0cf",
+    "text_muted": "#a79fb0",
+    "link_hover": "#c9b8ff"
+  },
+  "use_default_colours": false,
   "display_font": "Pirata One",
   "bandcamp_player": {
     "background": "Blend with page",

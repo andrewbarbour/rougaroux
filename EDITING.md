@@ -47,7 +47,7 @@ The button only appears once the show is in the Past tab, so you can add the lin
 ## Change the bio, lineup, links or press quotes
 
 Open **Site settings**. Everything on the page that isn't a show or a release lives here,
-including the footer's land acknowledgement and the accent colour.
+including the footer's land acknowledgement and the site colours.
 
 The wording of the top menu is under **Top menu** in Site settings. You can rename the links and
 change the button's text and where it goes. Leave a field blank to go back to the default.
@@ -59,6 +59,30 @@ like first, search for the name at https://fonts.google.com.
 **Bandcamp player colours** in Site settings changes the look of the Bandcamp players on release
 pages. Pick a background (blend with the page, dark or light) and type a colour code like
 `#b49cff` for the title and link colour. Bandcamp sets the rest of the text itself.
+
+## Change the site colours
+
+Open **Site settings → Site colours**. Each colour is a code like `#603cba`; you can pick one at
+https://htmlcolorcodes.com. Divider lines, the footer and other small shades follow your choices
+automatically. Keep text colours clearly lighter (or darker) than the backgrounds so everything
+stays easy to read.
+
+To undo colour changes:
+
+- **Everything at once:** turn on **Use the original colours** and save. Your own colours stay
+  filled in, so you can turn it off again later to bring them back.
+- **One colour:** clear that field and save, or paste its original code back in:
+
+| Setting | Original |
+|---|---|
+| Accent | `#603cba` |
+| Text on accent | `#ffffff` |
+| Page background | `#0e0c10` |
+| Panel background | `#16121a` |
+| Main text | `#ece4d6` |
+| Secondary text | `#c8c0cf` |
+| Muted text | `#a79fb0` |
+| Link hover | `#c9b8ff` |
 
 ## Photos
 
