@@ -3,7 +3,7 @@ title: Go for the Face
 date: 2023-01-12
 type: EP
 summary: The first studio EP. The CD edition adds the nine-minute epic "Drowning
-  in Bones".x
+  in Bones".
 bandcamp_embed:
   type: album
 tracks:
