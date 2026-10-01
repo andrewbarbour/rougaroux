@@ -6,4 +6,5 @@ cover: /images/Screenshot 2026-10-01 155825.png
 bandcamp_embed:
   type: track
   id: "2223711412"
+bandcamp_url: https://rougaroux.bandcamp.com/track/drowning-in-bones
 ---
