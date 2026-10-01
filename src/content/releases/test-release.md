@@ -1,5 +1,5 @@
 ---
-title: Graveyard Smash - w track embed
+title: Graveyard Smash
 date: 2025-04-11
 type: LP
 cover: /images/graveyard-smash.jpg
