@@ -13,4 +13,5 @@ summary: The Abyss is the blank space between the people who promised that you
 bandcamp_embed:
   type: track
   id: "1929163675"
+bandcamp_url: https://rougaroux.bandcamp.com/track/abyss
 ---
