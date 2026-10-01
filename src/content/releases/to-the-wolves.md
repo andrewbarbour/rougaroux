@@ -6,6 +6,7 @@ cover: /images/Screenshot 2026-10-01 155236.png
 bandcamp_embed:
   type: track
   id: "3452891914"
+bandcamp_url: https://rougaroux.bandcamp.com/track/to-the-wolves-2
 ---
 George Finley - Lyrics/ vocals
 Clay Finley - Bass
