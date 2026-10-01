@@ -2,10 +2,12 @@
 title: Go for the Face
 date: 2023-01-12
 type: EP
+cover: /images/Screenshot 2026-10-01 154443.png
 summary: The first studio EP. The CD edition adds the nine-minute epic "Drowning
   in Bones".
 bandcamp_embed:
-  type: album
+  type: track
+  id: "4254973056"
 tracks:
   - Puce
   - Panic Room
