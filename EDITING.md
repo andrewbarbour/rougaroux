@@ -66,6 +66,12 @@ The Merch section and its menu link appear as soon as there's at least one item.
 and the button under the cards (e.g. "View all our merch") are in **Site settings → Merch section**.
 To take an item down, delete its entry.
 
+## Show an alert at the top of the page
+
+Open **Site settings → Alert banner**, type the **Message**, and turn on **Show alert**. To add a
+link, fill in both **Link text** (e.g. "Get tickets") and **Link**. Save, and the bar appears across
+the top of every page. Turn **Show alert** off to hide it again; the text stays for next time.
+
 ## Change the bio, lineup, links or press quotes
 
 Open **Site settings**. The words and links on the page that aren't a show, release or merch item

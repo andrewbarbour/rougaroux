@@ -1,4 +1,10 @@
 {
+  "alert": {
+    "show": false,
+    "text": "",
+    "link_text": "",
+    "link": ""
+  },
   "name": "Rougaroux",
   "menu": {
     "music": "Music",

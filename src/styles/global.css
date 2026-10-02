@@ -110,6 +110,14 @@ p { margin: 0; }
 }
 
 /* Next show banner */
+/* Alert banner at the very top of every page (Site settings → Alert banner) */
+/* Styled to match the Next up banner; kept separate because the page script hides .next-up once its
+   show date has passed. */
+.site-alert { background: var(--accent); color: var(--accent-ink); }
+.site-alert__inner { display: flex; justify-content: space-between; align-items: center; gap: 12px 32px; padding-block: 22px; flex-wrap: wrap; }
+.site-alert__text { font-family: var(--mono); font-size: 15px; letter-spacing: 0.04em; }
+.site-alert a { color: var(--accent-ink); font-weight: 700; padding-block: 10px; white-space: nowrap; }
+
 .next-up { background: var(--accent); color: var(--accent-ink); }
 .next-up a { color: var(--accent-ink); font-weight: 700; padding-block: 10px; white-space: nowrap; }
 .next-up__inner { display: flex; justify-content: space-between; align-items: center; gap: 12px 32px; padding-block: 22px; flex-wrap: wrap; }

@@ -110,6 +110,15 @@ content:
     path: src/data/site.json
     format: json
     fields:
+      - name: alert
+        label: Alert banner
+        type: object
+        description: "A bar across the very top of every page, e.g. for a sold-out show or a new release."
+        fields:
+          - { name: show, label: Show alert, type: boolean, description: "Turn off to hide the banner but keep the text for later" }
+          - { name: text, label: Message, type: text, description: "Plain text, a sentence or two" }
+          - { name: link_text, label: Link text, type: string, description: "Optional, e.g. Get tickets" }
+          - { name: link, label: Link, type: string, description: "The link only appears when both the link text and link are filled in" }
       - { name: name, label: Band name, type: string }
       - name: menu
         label: Top menu
