@@ -1,9 +1,9 @@
 {
   "alert": {
-    "show": false,
-    "text": "",
-    "link_text": "",
-    "link": ""
+    "show": true,
+    "text": "Thanks for all the support about the problems we faced in Charlottetown, PEI.  See our updates on Facebook",
+    "link_text": "Follow on Facebook",
+    "link": "https://www.facebook.com/rougarouxtheband"
   },
   "name": "Rougaroux",
   "menu": {
