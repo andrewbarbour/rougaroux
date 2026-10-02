@@ -126,7 +126,7 @@ content:
       - { name: location, label: Location line, type: string }
       - { name: tagline, label: Tagline, type: string }
       - { name: intro, label: Intro line, type: string }
-      - { name: hero_image, label: Hero photo, type: image, description: "Landscape or portrait, about 1600 px wide, under 1 MB" }
+      - { name: hero_image, label: Hero photo, type: image, description: "Landscape or portrait, about 1600 px wide, under 1 MB. To change it, remove the current image first (this doesn't delete the file), then upload or choose a new one" }
       - name: merch
         label: Merch section
         type: object
