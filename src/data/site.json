@@ -1,9 +1,9 @@
 {
   "alert": {
-    "show": false,
-    "text": "Thanks for all the support about the problems we faced in Charlottetown, PEI.  See our updates on Facebook ",
-    "link_text": "Follow on Facebook",
-    "link": "https://www.facebook.com/rougarouxtheband"
+    "show": true,
+    "text": "NEXT SHOW - VESTIVAL 19 In Chilliwack",
+    "link_text": "RSVP on Facebook",
+    "link": "https://www.facebook.com/events/1695594615319719/?acontext=%7B%22event_action_history%22%3A[%7B%22mechanism%22%3A%22your_upcoming_events_unit%22%2C%22surface%22%3A%22bookmark%22%7D]%2C%22ref_notif_type%22%3Anull%7D"
   },
   "name": "Rougaroux",
   "menu": {
@@ -18,9 +18,9 @@
   "location": "Vancouver, BC · Unceded Coast Salish territories",
   "tagline": "Psychedelic post-punk queercore.",
   "intro": "Like all the cryptids, because you believe in us, we exist.",
-  "hero_image": "/images/Screenshot 2026-10-01 160019.png",
+  "hero_image": "/images/Rougarux Web.jpg",
   "merch": {
-    "intro": "New Merch is dropped every few weeks - follow us on our socials to hear when new items are released.",
+    "intro": "Follow us on our socials to hear when new items are released.",
     "button_text": "View all merch",
     "button_link": "https://rougaroux.bandcamp.com/merch/"
   },
@@ -50,15 +50,15 @@
       "role": "Drums"
     }
   ],
-  "lineup_note": "Additional guitar: Cam Thiessen",
   "press": [
     {
-      "quote": "As furious as it is vulnerable, as melodic as it is monstrous.",
-      "source": "We Write About Music, on Graveyard Smash",
-      "url": "https://www.wewriteaboutmusic.com/reviews/rougaroux-graveyard-smash"
+      "quote": "Blending raw, authentic emotion with relentless energy",
+      "source": "Braze Magazine Vol III",
+      "url": "https://online.fliphtml5.com/weedm/owvg/#p=27"
     }
   ],
   "email": "rougarouxtheband@gmail.com",
+  "epk_url": "https://epkbuilder.com/site/rougaroux",
   "links": {
     "bandcamp": "https://rougaroux.bandcamp.com/",
     "spotify": "https://open.spotify.com/artist/5z3S44N4AUJQaAutk2IdGq",
